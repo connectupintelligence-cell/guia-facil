@@ -1,0 +1,2078 @@
+{
+  "camposdojordao": {
+    "id": "camposdojordao",
+    "slug": "campos-do-jordao",
+    "name": "Campos do Jordão",
+    "uf": "SP",
+    "tagline": "Mantiqueira Alpina • A Suíça Brasileira",
+    "badge": "🌲 Estância Climática da Mantiqueira",
+    "heroTitle": "O Sistema de Inteligência Territorial de Campos do Jordão",
+    "heroSubtitle": "Conectando o centro alpino de Capivari, atrativos naturais, pousadas de charme e alta gastronomia na palma da mão do turista pelo WhatsApp.",
+    "temp": "14°C",
+    "altitude": "1.628m",
+    "population": "52.000 hab",
+    "annualTourists": "2.4 milhões/ano",
+    "publicServices": {
+      "prefeitura": "(12) 3668-5500",
+      "posto": "(12) 3662-1100 - Rua Brigadeiro Jordão, 580 (UPA Municipal)",
+      "policia": "190",
+      "samu": "192",
+      "centroTurismo": "(12) 3663-1234 - Portal de Entrada"
+    },
+    "chatWelcome": "👋 Olá! Sou o *Guia Fácil*, seu concierge oficial de **Campos do Jordão**! 🌲\n\nPara eu te passar as melhores dicas sob medida: **quem está viajando com você hoje?**",
+    "quickSuggestions": [
+      "👫 Casal Romântico",
+      "👨‍👩‍👧‍👦 Família com Crianças",
+      "🧗 Ecoturismo & Trilhas",
+      "🍷 Alta Gastronomia",
+      "O que fazer hoje?"
+    ],
+    "stats": {
+      "activeVisitorsToday": 14250,
+      "monthlyVisitors": 154200,
+      "monthlyVisitorsChange": "+14.3%",
+      "estimatedTourismRevenue": 48900000,
+      "estimatedTourismRevenueChange": "+18.7%",
+      "hotelOccupancyRate": 84.6,
+      "hotelOccupancyRateChange": "+5.2%",
+      "activeMerchants": 148,
+      "averageSpending": {
+        "hospedagem": 450,
+        "alimentacao": 220,
+        "compras": 180,
+        "ingressos": 80
+      },
+      "visitorFlowChart": [
+        {
+          "month": "Jan",
+          "visitors": 98000
+        },
+        {
+          "month": "Fev",
+          "visitors": 62000
+        },
+        {
+          "month": "Mar",
+          "visitors": 48000
+        },
+        {
+          "month": "Abr",
+          "visitors": 78000
+        },
+        {
+          "month": "Mai",
+          "visitors": 82000
+        },
+        {
+          "month": "Jun",
+          "visitors": 145000
+        },
+        {
+          "month": "Jul",
+          "visitors": 280000
+        },
+        {
+          "month": "Ago",
+          "visitors": 110000
+        },
+        {
+          "month": "Set",
+          "visitors": 65000
+        },
+        {
+          "month": "Out",
+          "visitors": 72000
+        },
+        {
+          "month": "Nov",
+          "visitors": 95000
+        },
+        {
+          "month": "Dez",
+          "visitors": 160000
+        }
+      ],
+      "touristOrigin": [
+        {
+          "state": "São Paulo",
+          "percentage": 68
+        },
+        {
+          "state": "Rio de Janeiro",
+          "percentage": 14
+        },
+        {
+          "state": "Minas Gerais",
+          "percentage": 8
+        },
+        {
+          "state": "Paraná",
+          "percentage": 5
+        },
+        {
+          "state": "Outros",
+          "percentage": 5
+        }
+      ]
+    },
+    "simulationStats": {
+      "cityName": "Campos do Jordão",
+      "totalAgents": 36,
+      "totalQueries": 177,
+      "couponsRedeemed": 50,
+      "checkinsDone": 50,
+      "totalXp": 2750,
+      "stimulatedRevenue": 8596.16,
+      "dispersionRate": 63.0,
+      "dispersionAnalysis": "Desvio significativo de tráfego do miolo do Capivari em direção ao Horto Florestal e Vila Jaguary.",
+      "topicCounts": [
+        {
+          "name": "Atrativos / Turismo",
+          "count": 60,
+          "pct": 33.9
+        },
+        {
+          "name": "Gastronomia / Fondue",
+          "count": 42,
+          "pct": 23.7
+        },
+        {
+          "name": "Eventos Culturais",
+          "count": 25,
+          "pct": 14.1
+        },
+        {
+          "name": "Check-in & Gamificação",
+          "count": 22,
+          "pct": 12.4
+        },
+        {
+          "name": "Cupons & Vouchers",
+          "count": 15,
+          "pct": 8.5
+        },
+        {
+          "name": "Família & Infantil",
+          "count": 6,
+          "pct": 3.4
+        },
+        {
+          "name": "Utilidade Pública & Saúde",
+          "count": 4,
+          "pct": 2.3
+        },
+        {
+          "name": "Hospedagem",
+          "count": 3,
+          "pct": 1.7
+        }
+      ],
+      "merchantCoupons": [
+        {
+          "name": "Chocolate Araucária",
+          "code": "ARAUCHOCO",
+          "discount": "Leve 2 Pague 1",
+          "redeemed": 14,
+          "tag": "Vila Jaguary (Periférico)",
+          "color": "var(--primary)"
+        },
+        {
+          "name": "Pousada Recanto dos Sonhos",
+          "code": "RECANTO10",
+          "discount": "10% Diária",
+          "redeemed": 15,
+          "tag": "Vila Jaguaribe",
+          "color": "var(--secondary)"
+        },
+        {
+          "name": "Matterhorn Fondue",
+          "code": "MATTER15",
+          "discount": "15% Fondue",
+          "redeemed": 12,
+          "tag": "Centro Capivari",
+          "color": "#a78bfa"
+        },
+        {
+          "name": "Baden Baden Cervejaria",
+          "code": "BADEN10",
+          "discount": "10% Chopp",
+          "redeemed": 9,
+          "tag": "Centro Capivari",
+          "color": "#f59e0b"
+        }
+      ],
+      "agentFeed": [
+        {
+          "id": "agente_04",
+          "archetype": "Família com Crianças",
+          "time": "Sábado 14:15",
+          "query": "O que fazer com crianças de 6 e 9 anos à tarde?",
+          "aiReply": "Parque Amantikir (labirinto botânico) e cabine fechada do Teleférico.",
+          "action": "Check-in no Parque Amantikir (+50 XP)",
+          "badgeColor": "rgba(0, 196, 140, 0.2)",
+          "textColor": "#00c48c"
+        },
+        {
+          "id": "agente_12",
+          "archetype": "Casal Romântico",
+          "time": "Sábado 19:40",
+          "query": "Melhor fondue com lareira para jantar a dois?",
+          "aiReply": "Matterhorn Fondue com rodízio especial e piano ao vivo no Capivari.",
+          "action": "Resgate de Cupom MATTER15 (-15% no rodízio)",
+          "badgeColor": "rgba(167, 139, 250, 0.2)",
+          "textColor": "#c4b5fd"
+        },
+        {
+          "id": "agente_27",
+          "archetype": "Jovem Aventureiro",
+          "time": "Domingo 09:30",
+          "query": "Quais trilhas e arvorismo abertos na mata?",
+          "aiReply": "Horto Florestal com trilha das quatro pontes e tirolesa alpina.",
+          "action": "Check-in no Horto Florestal (+50 XP)",
+          "badgeColor": "rgba(56, 189, 248, 0.2)",
+          "textColor": "#38bdf8"
+        }
+      ]
+    },
+    "attractions": [
+      {
+        "id": 1,
+        "name": "Parque Amantikir",
+        "category": "Natureza",
+        "description": "Conhecido como 'os jardins que falam', possui mais de 700 espécies de plantas espalhadas por 60 mil m² em jardins temáticos inspirados em diversos países.",
+        "location": "Rodovia Campos do Jordão, Km 4",
+        "hours": "Diariamente, das 9h às 16h",
+        "price": "R$ 60,00",
+        "rating": 4.8,
+        "reviewsCount": 1240,
+        "imageUrl": "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Amigo das Flores (+50 XP)"
+      },
+      {
+        "id": 2,
+        "name": "Vila Capivari",
+        "category": "Cultura",
+        "description": "O centro turístico da cidade, famoso por sua arquitetura em estilo alpino europeu, chocolaterias, restaurantes refinados e lojas de grife.",
+        "location": "Vila Capivari, Centro",
+        "hours": "Acesso livre (comércio varia)",
+        "price": "Gratuito",
+        "rating": 4.9,
+        "reviewsCount": 4580,
+        "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Explorador Alpino (+30 XP)"
+      },
+      {
+        "id": 3,
+        "name": "Teleférico Capivari",
+        "category": "Lazer",
+        "description": "O primeiro teleférico mono-cabo do Brasil, levando visitantes ao topo do Morro do Elefante a 1.800 metros de altitude.",
+        "location": "Praça São Benedito, Vila Capivari",
+        "hours": "Quarta a segunda, das 9h às 18h",
+        "price": "R$ 40,00",
+        "rating": 4.6,
+        "reviewsCount": 2310,
+        "imageUrl": "https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Nas Alturas (+40 XP)"
+      },
+      {
+        "id": 4,
+        "name": "Horto Florestal (Parque Estadual)",
+        "category": "Aventura",
+        "description": "Unidade de conservação com florestas de araucária, trilhas de caminhada, arborismo, aluguel de bicicletas e restaurantes integrados à natureza alpina.",
+        "location": "Av. Pedro Paulo, s/n - Horto Florestal",
+        "hours": "Terça a domingo, das 8h às 17h",
+        "price": "R$ 19,00",
+        "rating": 4.8,
+        "reviewsCount": 1540,
+        "imageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80",
+        "featured": false,
+        "checkInReward": "Medalha Guardião da Araucária (+50 XP)"
+      }
+    ],
+    "merchants": [
+      {
+        "id": 101,
+        "name": "Baden Baden Cervejaria",
+        "category": "Gastronomia",
+        "description": "Ícone de Campos do Jordão, oferecendo o melhor da culinária alemã e cervejas artesanais premiadas no Capivari.",
+        "location": "Rua Djalma Forjaz, 93 - Vila Capivari",
+        "phone": "(12) 3663-3610",
+        "whatsapp": "551236633610",
+        "imageUrl": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=600&q=80",
+        "rating": 4.8,
+        "reviewsCount": 1420,
+        "approved": true,
+        "coupons": [
+          {
+            "id": "C1",
+            "code": "BADEN10",
+            "description": "10% de desconto no Chopp Cristal de 500ml",
+            "limit": 150,
+            "redeemed": 92,
+            "active": true
+          }
+        ]
+      },
+      {
+        "id": 102,
+        "name": "Matterhorn Fondue & Empório",
+        "category": "Gastronomia",
+        "description": "Tradicional restaurante alpino no Capivari, especialista em rodízio de fondue de queijo, carnes nobres e chocolate suíço.",
+        "location": "Rua Djalma Forjaz, 115 - Vila Capivari",
+        "phone": "(12) 3663-1841",
+        "whatsapp": "551236631841",
+        "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+        "rating": 4.7,
+        "reviewsCount": 890,
+        "approved": true,
+        "coupons": [
+          {
+            "id": "C3",
+            "code": "MATTER15",
+            "description": "15% de desconto no rodízio de Fondue",
+            "limit": 100,
+            "redeemed": 65,
+            "active": true
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "id": 201,
+        "name": "54º Festival Internacional de Inverno",
+        "description": "O maior festival de música clássica da América Latina com apresentações no Auditório Cláudio Santoro.",
+        "date": "04 de Julho a 02 de Agosto, 2026",
+        "location": "Auditório Claudio Santoro & Praça de Capivari",
+        "category": "Música & Cultura",
+        "active": true
+      }
+    ]
+  },
+  "saobentodosapucai": {
+    "id": "saobentodosapucai",
+    "slug": "sao-bento-do-sapucai",
+    "name": "São Bento do Sapucaí",
+    "uf": "SP",
+    "tagline": "Capital dos Esportes de Aventura e Arte • Pedra do Baú",
+    "badge": "⛰️ Monumento Natural da Pedra do Baú",
+    "heroTitle": "O Sistema de Inteligência Territorial de São Bento do Sapucaí",
+    "heroSubtitle": "Conectando o Monumento da Pedra do Baú, os atrativos rurais, pousadas e o comércio local na palma da mão do turista pelo WhatsApp.",
+    "temp": "17°C",
+    "altitude": "874m - 1.950m",
+    "population": "11.000 hab",
+    "annualTourists": "480.000/ano",
+    "publicServices": {
+      "prefeitura": "(12) 3971-6110",
+      "posto": "(12) 3971-1222 - Rua Cel. Sebastião de Barros, 120 (Pronto Atendimento)",
+      "policia": "190",
+      "samu": "192",
+      "centroTurismo": "(12) 3971-1255 - Casa da Cultura Miguel Reale"
+    },
+    "chatWelcome": "👋 Olá! Sou o *Guia Fácil*, seu concierge oficial de **São Bento do Sapucaí**! ⛰️\n\nPara eu te passar as melhores dicas sob medida: **quem está viajando com você hoje?**",
+    "quickSuggestions": [
+      "👨‍👩‍👧‍👦 Família com Crianças",
+      "👫 Casal Romântico",
+      "🧗 Ecoturismo & Pedra do Baú",
+      "🎨 Artesanato & Cultura",
+      "O que fazer hoje?"
+    ],
+    "stats": {
+      "activeVisitorsToday": 4200,
+      "monthlyVisitors": 46500,
+      "monthlyVisitorsChange": "+19.2%",
+      "estimatedTourismRevenue": 14200000,
+      "estimatedTourismRevenueChange": "+22.5%",
+      "hotelOccupancyRate": 89.2,
+      "hotelOccupancyRateChange": "+8.4%",
+      "activeMerchants": 74,
+      "averageSpending": {
+        "hospedagem": 340,
+        "alimentacao": 160,
+        "compras": 120,
+        "ingressos": 45
+      },
+      "visitorFlowChart": [
+        {
+          "month": "Jan",
+          "visitors": 38000
+        },
+        {
+          "month": "Fev",
+          "visitors": 32000
+        },
+        {
+          "month": "Mar",
+          "visitors": 24000
+        },
+        {
+          "month": "Abr",
+          "visitors": 41000
+        },
+        {
+          "month": "Mai",
+          "visitors": 48000
+        },
+        {
+          "month": "Jun",
+          "visitors": 55000
+        },
+        {
+          "month": "Jul",
+          "visitors": 68000
+        },
+        {
+          "month": "Ago",
+          "visitors": 49000
+        },
+        {
+          "month": "Set",
+          "visitors": 36000
+        },
+        {
+          "month": "Out",
+          "visitors": 31000
+        },
+        {
+          "month": "Nov",
+          "visitors": 34000
+        },
+        {
+          "month": "Dez",
+          "visitors": 45000
+        }
+      ],
+      "touristOrigin": [
+        {
+          "state": "São Paulo",
+          "percentage": 74
+        },
+        {
+          "state": "Minas Gerais",
+          "percentage": 15
+        },
+        {
+          "state": "Rio de Janeiro",
+          "percentage": 7
+        },
+        {
+          "state": "Outros",
+          "percentage": 4
+        }
+      ]
+    },
+    "simulationStats": {
+      "cityName": "São Bento do Sapucaí",
+      "totalAgents": 32,
+      "totalQueries": 158,
+      "couponsRedeemed": 46,
+      "checkinsDone": 48,
+      "totalXp": 2540,
+      "stimulatedRevenue": 7420.5,
+      "dispersionRate": 71.5,
+      "dispersionAnalysis": "Alta dispersão dos turistas para os atrativos rurais do Bairro do Quilombo e Vale do Paiol Grande.",
+      "topicCounts": [
+        {
+          "name": "Trilhas & Pedra do Baú",
+          "count": 58,
+          "pct": 36.7
+        },
+        {
+          "name": "Gastronomia Caipira & Trutas",
+          "count": 39,
+          "pct": 24.7
+        },
+        {
+          "name": "Artesanato & Capelinhas",
+          "count": 22,
+          "pct": 13.9
+        },
+        {
+          "name": "Check-in Ecoturismo",
+          "count": 18,
+          "pct": 11.4
+        },
+        {
+          "name": "Pousadas & Chalés",
+          "count": 12,
+          "pct": 7.6
+        },
+        {
+          "name": "Utilidade Pública & Saúde",
+          "count": 9,
+          "pct": 5.7
+        }
+      ],
+      "merchantCoupons": [
+        {
+          "name": "Restaurante Trincheira",
+          "code": "TRINCHEIRA15",
+          "discount": "15% Truta Grelhada",
+          "redeemed": 18,
+          "tag": "Vale do Paiol",
+          "color": "var(--primary)"
+        },
+        {
+          "name": "Cervejaria Bauzera",
+          "code": "BAUZERA10",
+          "discount": "10% Degustação",
+          "redeemed": 14,
+          "tag": "Estrada do Baú",
+          "color": "#f59e0b"
+        },
+        {
+          "name": "Pousada do Quilombo",
+          "code": "QUILOMBO10",
+          "discount": "10% Diária",
+          "redeemed": 8,
+          "tag": "Resort",
+          "color": "var(--secondary)"
+        },
+        {
+          "name": "Rancho do Zé Queijos",
+          "code": "RANCHOZE",
+          "discount": "Brinde Doce de Leite",
+          "redeemed": 6,
+          "tag": "Artesanal",
+          "color": "#a78bfa"
+        }
+      ],
+      "agentFeed": [
+        {
+          "id": "agente_02",
+          "archetype": "Ecoturista / Aventureiro",
+          "time": "Sábado 08:30",
+          "query": "Qual a melhor trilha para fazer hoje na Pedra do Baú?",
+          "aiReply": "A Trilha do Bauzinho é ideal para contemplação fácil; para a via ferrata do topo do Baú, vá com guia credenciado.",
+          "action": "Check-in no Bauzinho (+60 XP)",
+          "badgeColor": "rgba(0, 196, 140, 0.2)",
+          "textColor": "#00c48c"
+        },
+        {
+          "id": "agente_07",
+          "archetype": "Casal Romântico",
+          "time": "Sábado 13:00",
+          "query": "Onde almoçar perto da Pedra do Baú com vista?",
+          "aiReply": "Restaurante Trincheira & Tratoria, famoso pela truta grelhada e deck com vista panorâmica para o maciço.",
+          "action": "Resgate de Cupom TRINCHEIRA15",
+          "badgeColor": "rgba(167, 139, 250, 0.2)",
+          "textColor": "#c4b5fd"
+        },
+        {
+          "id": "agente_14",
+          "archetype": "Família com Crianças",
+          "time": "Sábado 15:30",
+          "query": "Passeio cultural tranquilo no centro?",
+          "aiReply": "Visite as Capelinhas de Mosaico (obras de Ângelo Milani e Claudia Lara) e a Feira de Artesanato em palha de milho.",
+          "action": "Check-in nas Capelinhas (+40 XP)",
+          "badgeColor": "rgba(56, 189, 248, 0.2)",
+          "textColor": "#38bdf8"
+        }
+      ]
+    },
+    "attractions": [
+      {
+        "id": 11,
+        "name": "Monumento Natural da Pedra do Baú",
+        "category": "Aventura",
+        "description": "Formação rochosa icônica com 1.950m de altitude. Abriga o Bauzinho (acesso fácil para famílias), Ana Chata e o Baú com via ferrata.",
+        "location": "Estrada Municipal da Pedra do Baú, Km 8",
+        "hours": "Acesso das 8h às 17h (Estacionamento do Bauzinho)",
+        "price": "R$ 20,00",
+        "rating": 4.9,
+        "reviewsCount": 3890,
+        "imageUrl": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Conquistador do Baú (+60 XP)"
+      },
+      {
+        "id": 12,
+        "name": "Capelinhas de Mosaico",
+        "category": "Cultura",
+        "description": "Igrejinhas históricas transformadas em galerias a céu aberto pelos renomados artistas plásticos Ângelo Milani e Claudia Lara.",
+        "location": "Rua Treze de Maio, Centro",
+        "hours": "Acesso livre diariamente",
+        "price": "Gratuito",
+        "rating": 4.8,
+        "reviewsCount": 1640,
+        "imageUrl": "https://images.unsplash.com/photo-1548625361-19597793c7d1?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Arte Sacra & Mosaico (+40 XP)"
+      },
+      {
+        "id": 13,
+        "name": "Feira de Artesanato & Arte no Quilombo",
+        "category": "Cultura",
+        "description": "Cooperativa comunitária de artesãos que produzem cestaria tradicional em palha de milho, fibra de bananeira e tecelagem.",
+        "location": "Bairro do Quilombo, Estrada Municipal",
+        "hours": "Quinta a domingo, das 9h às 17h",
+        "price": "Gratuito",
+        "rating": 4.9,
+        "reviewsCount": 980,
+        "imageUrl": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Guardião do Quilombo (+35 XP)"
+      }
+    ],
+    "merchants": [
+      {
+        "id": 111,
+        "name": "Restaurante Trincheira & Tratoria",
+        "category": "Gastronomia",
+        "description": "Gastronomia requintada da Mantiqueira especializada em trutas frescas grelhadas, massas caseiras e vista para o Baú.",
+        "location": "Estrada do Paiol Grande, Km 2",
+        "phone": "(12) 3971-2005",
+        "whatsapp": "551239712005",
+        "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+        "rating": 4.9,
+        "reviewsCount": 820,
+        "approved": true,
+        "coupons": [
+          {
+            "id": "CSB1",
+            "code": "TRINCHEIRA15",
+            "description": "15% de desconto no Prato Principal de Truta Grelhada",
+            "limit": 100,
+            "redeemed": 48,
+            "active": true
+          }
+        ]
+      },
+      {
+        "id": 112,
+        "name": "Cervejaria Bauzera",
+        "category": "Gastronomia",
+        "description": "Brewpub artesanal com lúpulos frescos e água mineral da serra. Harmonizações com queijos da região.",
+        "location": "Estrada Municipal do Baú, Km 4",
+        "phone": "(12) 99762-3344",
+        "whatsapp": "5512997623344",
+        "imageUrl": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=600&q=80",
+        "rating": 4.8,
+        "reviewsCount": 540,
+        "approved": true,
+        "coupons": [
+          {
+            "id": "CSB2",
+            "code": "BAUZERA10",
+            "description": "10% de desconto na degustação de chope artesanal",
+            "limit": 80,
+            "redeemed": 35,
+            "active": true
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "id": 211,
+        "name": "Festival de Inverno & Arte na Praça",
+        "description": "Apresentações gratuitas de música instrumental, viola caipira, oficinas de mosaico e teatro na praça central.",
+        "date": "10 de Julho a 26 de Julho, 2026",
+        "location": "Praça Cônego Bento & Casa de Cultura",
+        "category": "Música & Cultura",
+        "active": true
+      }
+    ]
+  },
+  "santoantoniodopinhal": {
+    "id": "santoantoniodopinhal",
+    "slug": "santo-antonio-do-pinhal",
+    "name": "Santo Antônio do Pinhal",
+    "uf": "SP",
+    "tagline": "Charme, Mirantes & Ecoturismo de Altitude",
+    "badge": "🍃 O Refúgio Tranquilo da Mantiqueira",
+    "heroTitle": "O Sistema de Inteligência Territorial de Santo Antônio do Pinhal",
+    "heroSubtitle": "Conectando o Mirante do Pico Agudo, jardins botânicos, orquidários e a melhor gastronomia serrana pelo WhatsApp.",
+    "temp": "16°C",
+    "altitude": "1.080m - 1.634m",
+    "population": "7.200 hab",
+    "annualTourists": "350.000/ano",
+    "publicServices": {
+      "prefeitura": "(12) 3666-1122",
+      "posto": "(12) 3666-1300 - Av. Min. Nelson Hungria, 450 (Centro de Saúde)",
+      "policia": "190",
+      "samu": "192",
+      "centroTurismo": "(12) 3666-2088 - Praça do Artesão"
+    },
+    "chatWelcome": "👋 Olá! Sou o *Guia Fácil*, seu concierge oficial de **Santo Antônio do Pinhal**! 🍃\n\nPara eu te passar as melhores dicas sob medida: **quem está viajando com você hoje?**",
+    "quickSuggestions": [
+      "👫 Casal Romântico",
+      "🪂 Mirantes & Pico Agudo",
+      "👨‍👩‍👧‍👦 Família com Crianças",
+      "🌸 Jardins & Botânica",
+      "O que fazer hoje?"
+    ],
+    "stats": {
+      "activeVisitorsToday": 3800,
+      "monthlyVisitors": 38900,
+      "monthlyVisitorsChange": "+16.8%",
+      "estimatedTourismRevenue": 11800000,
+      "estimatedTourismRevenueChange": "+19.1%",
+      "hotelOccupancyRate": 86.4,
+      "hotelOccupancyRateChange": "+6.1%",
+      "activeMerchants": 62,
+      "averageSpending": {
+        "hospedagem": 360,
+        "alimentacao": 170,
+        "compras": 130,
+        "ingressos": 50
+      },
+      "visitorFlowChart": [
+        {
+          "month": "Jan",
+          "visitors": 28000
+        },
+        {
+          "month": "Fev",
+          "visitors": 22000
+        },
+        {
+          "month": "Mar",
+          "visitors": 19000
+        },
+        {
+          "month": "Abr",
+          "visitors": 33000
+        },
+        {
+          "month": "Mai",
+          "visitors": 39000
+        },
+        {
+          "month": "Jun",
+          "visitors": 44000
+        },
+        {
+          "month": "Jul",
+          "visitors": 56000
+        },
+        {
+          "month": "Ago",
+          "visitors": 38000
+        },
+        {
+          "month": "Set",
+          "visitors": 27000
+        },
+        {
+          "month": "Out",
+          "visitors": 25000
+        },
+        {
+          "month": "Nov",
+          "visitors": 29000
+        },
+        {
+          "month": "Dez",
+          "visitors": 36000
+        }
+      ],
+      "touristOrigin": [
+        {
+          "state": "São Paulo",
+          "percentage": 78
+        },
+        {
+          "state": "Rio de Janeiro",
+          "percentage": 11
+        },
+        {
+          "state": "Minas Gerais",
+          "percentage": 8
+        },
+        {
+          "state": "Outros",
+          "percentage": 3
+        }
+      ]
+    },
+    "simulationStats": {
+      "cityName": "Santo Antônio do Pinhal",
+      "totalAgents": 30,
+      "totalQueries": 142,
+      "couponsRedeemed": 41,
+      "checkinsDone": 44,
+      "totalXp": 2310,
+      "stimulatedRevenue": 6890.0,
+      "dispersionRate": 68.2,
+      "dispersionAnalysis": "Equilíbrio entre a rota de mirantes no Pico Agudo e os atrativos da Rodovia dos Jardins.",
+      "topicCounts": [
+        {
+          "name": "Mirantes & Pico Agudo",
+          "count": 52,
+          "pct": 36.6
+        },
+        {
+          "name": "Jardins & Botânica",
+          "count": 34,
+          "pct": 23.9
+        },
+        {
+          "name": "Gastronomia & Trutas",
+          "count": 28,
+          "pct": 19.7
+        },
+        {
+          "name": "Check-in Gamificado",
+          "count": 16,
+          "pct": 11.3
+        },
+        {
+          "name": "Pousadas & Charme",
+          "count": 12,
+          "pct": 8.5
+        }
+      ],
+      "merchantCoupons": [
+        {
+          "name": "Bodega Santo Antônio",
+          "code": "BODEGA10",
+          "discount": "10% Massas Caseiras",
+          "redeemed": 16,
+          "tag": "Centro",
+          "color": "var(--primary)"
+        },
+        {
+          "name": "Cervejaria Araukarien",
+          "code": "ARAUK15",
+          "discount": "15% Chope IPA",
+          "redeemed": 14,
+          "tag": "Artesanal",
+          "color": "#f59e0b"
+        },
+        {
+          "name": "Pousada Villa Mantiqueira",
+          "code": "VILLA10",
+          "discount": "10% Diária",
+          "redeemed": 11,
+          "tag": "Refúgio",
+          "color": "var(--secondary)"
+        }
+      ],
+      "agentFeed": [
+        {
+          "id": "agente_03",
+          "archetype": "Casal Romântico",
+          "time": "Sábado 16:45",
+          "query": "Qual o melhor horário para ir ao Pico Agudo ver o pôr do sol?",
+          "aiReply": "Suba entre 16h30 e 17h para contemplar o voo livre com céu dourado a 1.634m de altitude.",
+          "action": "Check-in no Mirante do Pico Agudo (+60 XP)",
+          "badgeColor": "rgba(167, 139, 250, 0.2)",
+          "textColor": "#c4b5fd"
+        }
+      ]
+    },
+    "attractions": [
+      {
+        "id": 21,
+        "name": "Mirante do Pico Agudo",
+        "category": "Aventura",
+        "description": "Com 1.634m de altitude, oferece vista de 360° para a Pedra do Baú e o Vale do Paraíba, com rampa ativa de parapente e asa-delta.",
+        "location": "Estrada Municipal do Pico Agudo",
+        "hours": "Acesso livre (Recomendado pôr do sol)",
+        "price": "Gratuito",
+        "rating": 4.9,
+        "reviewsCount": 2980,
+        "imageUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Nas Nuvens do Pico Agudo (+60 XP)"
+      },
+      {
+        "id": 22,
+        "name": "Jardim dos Pinhais Ecco Parque",
+        "category": "Natureza",
+        "description": "O primeiro parque temático de jardins temáticos do Brasil: Japonês, Italiano, Tropical e Desértico em meio às araucárias.",
+        "location": "Rodovia SP-046, Km 146",
+        "hours": "Segunda a domingo, das 9h às 17h",
+        "price": "R$ 45,00",
+        "rating": 4.8,
+        "reviewsCount": 1850,
+        "imageUrl": "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Botânica dos Pinhais (+40 XP)"
+      }
+    ],
+    "merchants": [
+      {
+        "id": 121,
+        "name": "Bodega Santo Antônio",
+        "category": "Gastronomia",
+        "description": "Cozinha acolhedora de montanha especializada em massas artesanais e risotos de truta defumada.",
+        "location": "Av. Min. Nelson Hungria, 620",
+        "phone": "(12) 3666-1890",
+        "whatsapp": "551236661890",
+        "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+        "rating": 4.8,
+        "reviewsCount": 610,
+        "approved": true,
+        "coupons": [
+          {
+            "id": "CSAP1",
+            "code": "BODEGA10",
+            "description": "10% de desconto em qualquer prato de massa caseira",
+            "limit": 60,
+            "redeemed": 32,
+            "active": true
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "id": 221,
+        "name": "Festa do Pinhão de Santo Antônio",
+        "description": "Barracas gastronômicas com receitas de pinhão e apresentações de moda de viola caipira.",
+        "date": "01 a 10 de Maio, 2026",
+        "location": "Praça do Artesão, Centro",
+        "category": "Gastronomia & Cultura",
+        "active": true
+      }
+    ]
+  },
+  "monteverde": {
+    "id": "monteverde",
+    "slug": "monte-verde",
+    "name": "Monte Verde",
+    "uf": "MG",
+    "tagline": "O Refúgio Romântico da Serra da Mantiqueira",
+    "badge": "❄️ Vila Suíça Mineira • 1.555m",
+    "heroTitle": "O Sistema de Inteligência Territorial de Monte Verde",
+    "heroSubtitle": "Conectando as trilhas de altitude, a gastronomia mineiro-alpina, chocolaterias e chalés com lareira pelo WhatsApp.",
+    "temp": "13°C",
+    "altitude": "1.555m - 2.082m",
+    "population": "Distrito Turístico (Camanducaia)",
+    "annualTourists": "650.000/ano",
+    "publicServices": {
+      "prefeitura": "(35) 3438-1158 (Subprefeitura)",
+      "posto": "(35) 3438-1540 - Rua dos Eucaliptos, s/n (Pronto Atendimento)",
+      "policia": "190",
+      "samu": "192",
+      "centroTurismo": "(35) 3438-1832 - Portal de Entrada de Monte Verde"
+    },
+    "chatWelcome": "👋 Olá! Sou o *Guia Fácil*, seu concierge oficial de **Monte Verde (MG)**! ❄️\n\nPara eu te passar as melhores dicas sob medida: **quem está viajando com você hoje?**",
+    "quickSuggestions": [
+      "👫 Casal Romântico",
+      "🥾 Trilhas & Montanha",
+      "🍫 Fondues & Chocolates",
+      "👨‍👩‍👧‍👦 Família na Serra",
+      "O que fazer hoje?"
+    ],
+    "stats": {
+      "activeVisitorsToday": 6800,
+      "monthlyVisitors": 62000,
+      "monthlyVisitorsChange": "+15.4%",
+      "estimatedTourismRevenue": 21500000,
+      "estimatedTourismRevenueChange": "+17.9%",
+      "hotelOccupancyRate": 88.5,
+      "hotelOccupancyRateChange": "+7.3%",
+      "activeMerchants": 95,
+      "averageSpending": {
+        "hospedagem": 420,
+        "alimentacao": 210,
+        "compras": 170,
+        "ingressos": 70
+      },
+      "visitorFlowChart": [
+        {
+          "month": "Jan",
+          "visitors": 45000
+        },
+        {
+          "month": "Fev",
+          "visitors": 36000
+        },
+        {
+          "month": "Mar",
+          "visitors": 28000
+        },
+        {
+          "month": "Abr",
+          "visitors": 48000
+        },
+        {
+          "month": "Mai",
+          "visitors": 58000
+        },
+        {
+          "month": "Jun",
+          "visitors": 78000
+        },
+        {
+          "month": "Jul",
+          "visitors": 98000
+        },
+        {
+          "month": "Ago",
+          "visitors": 59000
+        },
+        {
+          "month": "Set",
+          "visitors": 38000
+        },
+        {
+          "month": "Out",
+          "visitors": 35000
+        },
+        {
+          "month": "Nov",
+          "visitors": 42000
+        },
+        {
+          "month": "Dez",
+          "visitors": 60000
+        }
+      ],
+      "touristOrigin": [
+        {
+          "state": "São Paulo",
+          "percentage": 72
+        },
+        {
+          "state": "Minas Gerais",
+          "percentage": 18
+        },
+        {
+          "state": "Rio de Janeiro",
+          "percentage": 6
+        },
+        {
+          "state": "Outros",
+          "percentage": 4
+        }
+      ]
+    },
+    "simulationStats": {
+      "cityName": "Monte Verde",
+      "totalAgents": 34,
+      "totalQueries": 164,
+      "couponsRedeemed": 48,
+      "checkinsDone": 47,
+      "totalXp": 2620,
+      "stimulatedRevenue": 7950.0,
+      "dispersionRate": 65.4,
+      "dispersionAnalysis": "Boa divisão de turistas entre o centrinho comercial na Av. Monte Verde e as trilhas de altitude no Platô e Pedra Redonda.",
+      "topicCounts": [
+        {
+          "name": "Trilhas & Pedra Redonda",
+          "count": 55,
+          "pct": 33.5
+        },
+        {
+          "name": "Fondue & Chocolates",
+          "count": 44,
+          "pct": 26.8
+        },
+        {
+          "name": "Vila Gastronômica",
+          "count": 29,
+          "pct": 17.7
+        },
+        {
+          "name": "Check-in Ecológico",
+          "count": 20,
+          "pct": 12.2
+        },
+        {
+          "name": "Pousadas Românticas",
+          "count": 16,
+          "pct": 9.8
+        }
+      ],
+      "merchantCoupons": [
+        {
+          "name": "Villa Dona Gourmet",
+          "code": "DONA15",
+          "discount": "15% Fondue de Queijo",
+          "redeemed": 19,
+          "tag": "Centro",
+          "color": "var(--primary)"
+        },
+        {
+          "name": "Chocolateria Gressoney",
+          "code": "GRESSONEY",
+          "discount": "Prístino Cortesia",
+          "redeemed": 17,
+          "tag": "Tradição",
+          "color": "#f59e0b"
+        },
+        {
+          "name": "Cervejaria Fritz",
+          "code": "FRITZ10",
+          "discount": "10% Chope Alemão",
+          "redeemed": 12,
+          "tag": "Vila",
+          "color": "var(--secondary)"
+        }
+      ],
+      "agentFeed": [
+        {
+          "id": "agente_09",
+          "archetype": "Casal Romântico",
+          "time": "Sábado 20:10",
+          "query": "Onde comer sequência de fondue artesanal?",
+          "aiReply": "Villa Dona Gourmet com rodízio especial de queijos da Mantiqueira e chocolate belga.",
+          "action": "Resgate de Cupom DONA15",
+          "badgeColor": "rgba(167, 139, 250, 0.2)",
+          "textColor": "#c4b5fd"
+        }
+      ]
+    },
+    "attractions": [
+      {
+        "id": 31,
+        "name": "Trilha da Pedra Redonda",
+        "category": "Aventura",
+        "description": "Trilha acessível com passarelas de madeira levando ao cume de 1.990m com mirante panorâmico na divisa SP/MG.",
+        "location": "Acesso pelo final da Av. das Montanhas",
+        "hours": "Diariamente, das 8h às 16h",
+        "price": "R$ 35,00",
+        "rating": 4.9,
+        "reviewsCount": 3450,
+        "imageUrl": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Conquistador da Pedra Redonda (+60 XP)"
+      },
+      {
+        "id": 32,
+        "name": "Avenida Monte Verde (Centrinho)",
+        "category": "Cultura",
+        "description": "Boulevard alpino com empórios de queijo da Canastra, chocolaterias, cafeterias e lojas de malhas de lã.",
+        "location": "Av. Monte Verde, Centro",
+        "hours": "Comércio aberto diariamente",
+        "price": "Gratuito",
+        "rating": 4.8,
+        "reviewsCount": 4200,
+        "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Passeio Alpino Mineiro (+30 XP)"
+      }
+    ],
+    "merchants": [
+      {
+        "id": 131,
+        "name": "Villa Dona Gourmet",
+        "category": "Gastronomia",
+        "description": "Referência em gastronomia alpina e fondues servidos com aquecimento a lenha e vinhos finos.",
+        "location": "Rua Rolinha, 33",
+        "phone": "(35) 3438-2159",
+        "whatsapp": "553534382159",
+        "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+        "rating": 4.9,
+        "reviewsCount": 940,
+        "approved": true,
+        "coupons": [
+          {
+            "id": "CMV1",
+            "code": "DONA15",
+            "description": "15% de desconto no Rodízio de Fondue",
+            "limit": 80,
+            "redeemed": 52,
+            "active": true
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "id": 231,
+        "name": "Festival de Inverno de Monte Verde",
+        "description": "Concertos ao ar livre, apresentações teatrais e oficinas gastronômicas na avenida principal.",
+        "date": "03 a 26 de Julho, 2026",
+        "location": "Avenida Monte Verde",
+        "category": "Música & Cultura",
+        "active": true
+      }
+    ]
+  },
+  "ubatuba": {
+    "id": "ubatuba",
+    "slug": "ubatuba",
+    "name": "Ubatuba",
+    "uf": "SP",
+    "tagline": "Capital Ecológica do Surfe & Mais de 100 Praias",
+    "badge": "🏖️ Mais de 100 Praias & Mata Atlântica",
+    "heroTitle": "O Sistema de Inteligência Territorial de Ubatuba",
+    "heroSubtitle": "Conectando mais de 100 praias paradisíacas, o Projeto Tamar, passeios de barco e gastronomia caiçara na palma da mão pelo WhatsApp.",
+    "temp": "24°C",
+    "altitude": "5m",
+    "population": "93.000 hab",
+    "annualTourists": "1.8 milhões/ano",
+    "publicServices": {
+      "prefeitura": "(12) 3834-1000",
+      "posto": "(12) 3834-3000 - Rua Conceição, 135 (Santa Casa & Pronto Socorro)",
+      "policia": "190",
+      "samu": "192",
+      "salvaVidas": "193 (Bombeiros Marítimos / GBMar)",
+      "centroTurismo": "(12) 3834-1550 - CIT Av. Iperoig"
+    },
+    "chatWelcome": "👋 Olá! Sou o *Guia Fácil*, seu concierge oficial de **Ubatuba**! 🏖️\n\nPara eu te passar as melhores dicas sob medida: **quem está viajando com você hoje?**",
+    "quickSuggestions": [
+      "👨‍👩‍👧‍👦 Família com Crianças",
+      "🏄 Surfe & Praias Selvagens",
+      "🐢 Projeto Tamar & Passeios",
+      "🐟 Gastronomia Caiçara",
+      "O que fazer hoje?"
+    ],
+    "stats": {
+      "activeVisitorsToday": 18500,
+      "monthlyVisitors": 195000,
+      "monthlyVisitorsChange": "+21.4%",
+      "estimatedTourismRevenue": 54200000,
+      "estimatedTourismRevenueChange": "+24.8%",
+      "hotelOccupancyRate": 91.2,
+      "hotelOccupancyRateChange": "+9.5%",
+      "activeMerchants": 165,
+      "averageSpending": {
+        "hospedagem": 480,
+        "alimentacao": 230,
+        "compras": 150,
+        "ingressos": 90
+      },
+      "visitorFlowChart": [
+        {
+          "month": "Jan",
+          "visitors": 240000
+        },
+        {
+          "month": "Fev",
+          "visitors": 190000
+        },
+        {
+          "month": "Mar",
+          "visitors": 95000
+        },
+        {
+          "month": "Abr",
+          "visitors": 88000
+        },
+        {
+          "month": "Mai",
+          "visitors": 65000
+        },
+        {
+          "month": "Jun",
+          "visitors": 58000
+        },
+        {
+          "month": "Jul",
+          "visitors": 92000
+        },
+        {
+          "month": "Ago",
+          "visitors": 62000
+        },
+        {
+          "month": "Set",
+          "visitors": 75000
+        },
+        {
+          "month": "Out",
+          "visitors": 82000
+        },
+        {
+          "month": "Nov",
+          "visitors": 110000
+        },
+        {
+          "month": "Dez",
+          "visitors": 220000
+        }
+      ],
+      "touristOrigin": [
+        {
+          "state": "São Paulo",
+          "percentage": 82
+        },
+        {
+          "state": "Minas Gerais",
+          "percentage": 10
+        },
+        {
+          "state": "Rio de Janeiro",
+          "percentage": 5
+        },
+        {
+          "state": "Outros",
+          "percentage": 3
+        }
+      ]
+    },
+    "simulationStats": {
+      "cityName": "Ubatuba",
+      "totalAgents": 38,
+      "totalQueries": 185,
+      "couponsRedeemed": 55,
+      "checkinsDone": 54,
+      "totalXp": 2980,
+      "stimulatedRevenue": 9640.0,
+      "dispersionRate": 74.8,
+      "dispersionAnalysis": "Descentralização eficaz de banhistas das praias centrais (Itaguá/Grande) em direção às praias do norte e ecoturismo.",
+      "topicCounts": [
+        {
+          "name": "Praias & Ilhas",
+          "count": 68,
+          "pct": 36.8
+        },
+        {
+          "name": "Gastronomia Caiçara",
+          "count": 45,
+          "pct": 24.3
+        },
+        {
+          "name": "Projeto Tamar & Ecoturismo",
+          "count": 32,
+          "pct": 17.3
+        },
+        {
+          "name": "Check-in Praias Preservadas",
+          "count": 24,
+          "pct": 13.0
+        },
+        {
+          "name": "Pousadas Pé na Areia",
+          "count": 16,
+          "pct": 8.6
+        }
+      ],
+      "merchantCoupons": [
+        {
+          "name": "Restaurante Peixe com Banana",
+          "code": "BANANA15",
+          "discount": "15% Prato Caiçara",
+          "redeemed": 22,
+          "tag": "Orla do Itaguá",
+          "color": "var(--primary)"
+        },
+        {
+          "name": "Pousada Kaliman",
+          "code": "KALIMAN10",
+          "discount": "10% Diária",
+          "redeemed": 18,
+          "tag": "Praia de Itamambuca",
+          "color": "var(--secondary)"
+        },
+        {
+          "name": "Ubatuba Surf Adventure",
+          "code": "SURF20",
+          "discount": "20% Aula de Surfe",
+          "redeemed": 15,
+          "tag": "Esporte Aquático",
+          "color": "#f59e0b"
+        }
+      ],
+      "agentFeed": [
+        {
+          "id": "agente_05",
+          "archetype": "Família com Crianças",
+          "time": "Sábado 10:15",
+          "query": "Qual praia com mar calmo e quiosques para passar o dia?",
+          "aiReply": "Praia do Lázaro ou Praia Domingas Dias, ambas com águas transparentes sem correnteza.",
+          "action": "Check-in na Praia do Lázaro (+40 XP)",
+          "badgeColor": "rgba(0, 196, 140, 0.2)",
+          "textColor": "#00c48c"
+        }
+      ]
+    },
+    "attractions": [
+      {
+        "id": 41,
+        "name": "Projeto Tamar Ubatuba",
+        "category": "Natureza",
+        "description": "Centro de conservação das tartarugas marinhas no Brasil, com tanques interativos e educação ambiental.",
+        "location": "Rua Antonio Athanasio, 273 - Itaguá",
+        "hours": "Quinta a terça, das 10h às 17h",
+        "price": "R$ 38,00",
+        "rating": 4.9,
+        "reviewsCount": 4650,
+        "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Amigo das Tartarugas (+50 XP)"
+      },
+      {
+        "id": 42,
+        "name": "Ilha das Couves",
+        "category": "Aventura",
+        "description": "Ilha paradisíaca com águas transparentes cor de esmeralda, excelente para snorkeling e trilhas curtas.",
+        "location": "Acesso de barco saindo de Picinguaba",
+        "hours": "Passeios das 8h às 16h",
+        "price": "R$ 70,00 a R$ 100,00 (barco)",
+        "rating": 4.9,
+        "reviewsCount": 3980,
+        "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Paraíso das Couves (+60 XP)"
+      }
+    ],
+    "merchants": [
+      {
+        "id": 141,
+        "name": "Restaurante Peixe com Banana",
+        "category": "Gastronomia",
+        "description": "Referência da culinária caiçara paulista. O tradicional peixe fresco com banana da terra e farofa de camarão.",
+        "location": "Rua Guarani, 255 - Itaguá",
+        "phone": "(12) 3832-1712",
+        "whatsapp": "551238321712",
+        "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+        "rating": 4.9,
+        "reviewsCount": 1240,
+        "approved": true,
+        "coupons": [
+          {
+            "id": "CUB1",
+            "code": "BANANA15",
+            "description": "15% de desconto no Peixe com Banana",
+            "limit": 100,
+            "redeemed": 62,
+            "active": true
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "id": 241,
+        "name": "Festival da Tainha e Gastronomia Caiçara",
+        "description": "Tradição gastronômica caiçara na orla do Itaguá com tainha assada na brasa e música regional.",
+        "date": "03 a 19 de Julho, 2026",
+        "location": "Praça de Eventos da Av. Iperoig",
+        "category": "Gastronomia & Cultura",
+        "active": true
+      }
+    ]
+  },
+  "saojosedoscampos": {
+    "id": "saojosedoscampos",
+    "slug": "sao-jose-dos-campos",
+    "name": "São José dos Campos",
+    "uf": "SP",
+    "tagline": "Capital Tecnológica & Polo Aeroespacial do Vale",
+    "badge": "🚀 Polo Aeroespacial & Mantiqueira (SFX)",
+    "heroTitle": "O Sistema de Inteligência Territorial de São José dos Campos",
+    "heroSubtitle": "Conectando o parque tecnológico, o refúgio ecológico de São Francisco Xavier, parques modernistas e a gastronomia joseense pelo WhatsApp.",
+    "temp": "23°C",
+    "altitude": "660m",
+    "population": "730.000 hab",
+    "annualTourists": "1.2 milhões/ano",
+    "publicServices": {
+      "prefeitura": "(12) 3947-8000",
+      "posto": "(12) 3901-3500 - Hospital Municipal Dr. José de Carvalho Florence",
+      "policia": "190",
+      "samu": "192",
+      "centroTurismo": "(12) 3947-8644 - Parque Vicentina Aranha"
+    },
+    "chatWelcome": "👋 Olá! Sou o *Guia Fácil*, seu concierge oficial de **São José dos Campos**! 🚀\n\nPara eu te passar as melhores dicas sob medida: **quem está viajando com você hoje?**",
+    "quickSuggestions": [
+      "👨‍👩‍👧‍👦 Família com Crianças",
+      "🌲 Distrito de São Francisco Xavier (SFX)",
+      "💼 Viagem a Trabalho / Inovação",
+      "🍺 Bares & Gastronomia Tradicional",
+      "O que fazer hoje?"
+    ],
+    "stats": {
+      "activeVisitorsToday": 11500,
+      "monthlyVisitors": 112000,
+      "monthlyVisitorsChange": "+12.6%",
+      "estimatedTourismRevenue": 36800000,
+      "estimatedTourismRevenueChange": "+15.2%",
+      "hotelOccupancyRate": 82.4,
+      "hotelOccupancyRateChange": "+4.8%",
+      "activeMerchants": 120,
+      "averageSpending": {
+        "hospedagem": 390,
+        "alimentacao": 180,
+        "compras": 160,
+        "ingressos": 55
+      },
+      "visitorFlowChart": [
+        {
+          "month": "Jan",
+          "visitors": 75000
+        },
+        {
+          "month": "Fev",
+          "visitors": 68000
+        },
+        {
+          "month": "Mar",
+          "visitors": 92000
+        },
+        {
+          "month": "Abr",
+          "visitors": 98000
+        },
+        {
+          "month": "Mai",
+          "visitors": 105000
+        },
+        {
+          "month": "Jun",
+          "visitors": 115000
+        },
+        {
+          "month": "Jul",
+          "visitors": 138000
+        },
+        {
+          "month": "Ago",
+          "visitors": 110000
+        },
+        {
+          "month": "Set",
+          "visitors": 99000
+        },
+        {
+          "month": "Out",
+          "visitors": 104000
+        },
+        {
+          "month": "Nov",
+          "visitors": 108000
+        },
+        {
+          "month": "Dez",
+          "visitors": 120000
+        }
+      ],
+      "touristOrigin": [
+        {
+          "state": "São Paulo",
+          "percentage": 76
+        },
+        {
+          "state": "Rio de Janeiro",
+          "percentage": 12
+        },
+        {
+          "state": "Minas Gerais",
+          "percentage": 8
+        },
+        {
+          "state": "Outros",
+          "percentage": 4
+        }
+      ]
+    },
+    "simulationStats": {
+      "cityName": "São José dos Campos",
+      "totalAgents": 35,
+      "totalQueries": 170,
+      "couponsRedeemed": 49,
+      "checkinsDone": 51,
+      "totalXp": 2710,
+      "stimulatedRevenue": 8340.0,
+      "dispersionRate": 66.8,
+      "dispersionAnalysis": "Desvio significativo de fluxo corporativo urbano em direção ao refúgio de ecoturismo em São Francisco Xavier.",
+      "topicCounts": [
+        {
+          "name": "Parques & Vicentina Aranha",
+          "count": 56,
+          "pct": 32.9
+        },
+        {
+          "name": "São Francisco Xavier (SFX)",
+          "count": 48,
+          "pct": 28.2
+        },
+        {
+          "name": "Gastronomia & Bares",
+          "count": 34,
+          "pct": 20.0
+        },
+        {
+          "name": "Polo Aeroespacial / DCTA",
+          "count": 20,
+          "pct": 11.8
+        },
+        {
+          "name": "Hotéis & Convenções",
+          "count": 12,
+          "pct": 7.1
+        }
+      ],
+      "merchantCoupons": [
+        {
+          "name": "Bar do Coronel",
+          "code": "CORONEL10",
+          "discount": "10% nos Famosos Bolinhos",
+          "redeemed": 24,
+          "tag": "Centro Histórico",
+          "color": "var(--primary)"
+        },
+        {
+          "name": "Villa Samaria SFX",
+          "code": "SAMARIA15",
+          "discount": "15% Almoço da Montanha",
+          "redeemed": 16,
+          "tag": "São Francisco Xavier",
+          "color": "var(--secondary)"
+        },
+        {
+          "name": "Pousada Céu de Estrelas SFX",
+          "code": "ESTRELAS10",
+          "discount": "10% Hospedagem",
+          "redeemed": 9,
+          "tag": "Chalés Serra",
+          "color": "#a78bfa"
+        }
+      ],
+      "agentFeed": [
+        {
+          "id": "agente_11",
+          "archetype": "Família com Crianças",
+          "time": "Sábado 10:00",
+          "query": "Parque arborizado com espaço para piquenique e crianças?",
+          "aiReply": "Parque Vicentina Aranha na Vila Adyana: pavilhões históricos e ampla área sombreada.",
+          "action": "Check-in no Parque Vicentina Aranha (+45 XP)",
+          "badgeColor": "rgba(0, 196, 140, 0.2)",
+          "textColor": "#00c48c"
+        },
+        {
+          "id": "agente_22",
+          "archetype": "Casal Romântico",
+          "time": "Sábado 15:30",
+          "query": "Pousada com lareira e natureza em São Francisco Xavier?",
+          "aiReply": "Pousada Céu de Estrelas com chalés nas montanhas e vista panorâmica para a Mantiqueira.",
+          "action": "Resgate de Cupom ESTRELAS10",
+          "badgeColor": "rgba(167, 139, 250, 0.2)",
+          "textColor": "#c4b5fd"
+        }
+      ]
+    },
+    "attractions": [
+      {
+        "id": 51,
+        "name": "Parque Vicentina Aranha",
+        "category": "Cultura",
+        "description": "Antigo sanatório do início do século XX projetado por Ramos de Azevedo, transformado em parque arborizado com capela neogótica e centro cultural.",
+        "location": "Rua Eng. Prudente Meireles de Morais, 302 - Vila Adyana",
+        "hours": "Diariamente, das 5h às 21h",
+        "price": "Gratuito",
+        "rating": 4.9,
+        "reviewsCount": 5120,
+        "imageUrl": "https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Guardião do Vicentina (+45 XP)"
+      },
+      {
+        "id": 52,
+        "name": "Distrito de São Francisco Xavier (SFX)",
+        "category": "Aventura",
+        "description": "Vila charmosa na Serra da Mantiqueira pertencente a SJC, famosa por cachoeiras, trilhas na Pedra de São Francisco, ateliês e alta gastronomia.",
+        "location": "Distrito de SFX (50km do centro de SJC)",
+        "hours": "Acesso livre",
+        "price": "Gratuito",
+        "rating": 4.9,
+        "reviewsCount": 3840,
+        "imageUrl": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Conquistador de SFX (+60 XP)"
+      },
+      {
+        "id": 53,
+        "name": "Memorial Aeroespacial Brasileiro (MAB / DCTA)",
+        "category": "Cultura",
+        "description": "Museu ao ar livre com réplicas em tamanho real de foguetes do Programa Espacial Brasileiro, satélites, mísseis e o primeiro protótipo do avião Bandeirante.",
+        "location": "Av. Brg. Faria Lima, s/n - Putim",
+        "hours": "Terça a domingo, das 8h às 17h",
+        "price": "Gratuito",
+        "rating": 4.7,
+        "reviewsCount": 2190,
+        "imageUrl": "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Pioneiro do Espaço (+50 XP)"
+      },
+      {
+        "id": 54,
+        "name": "Parque da Cidade Roberto Burle Marx",
+        "category": "Natureza",
+        "description": "Antiga Fazenda da Tecelagem Paraíba, com jardins projetados por Roberto Burle Marx, lago com ilha, bosques de palmeiras e centro de convivência.",
+        "location": "Av. Olivo Gomes, 100 - Santana",
+        "hours": "Diariamente, das 6h às 18h",
+        "price": "Gratuito",
+        "rating": 4.8,
+        "reviewsCount": 3410,
+        "imageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80",
+        "featured": false,
+        "checkInReward": "Medalha Caminho das Palmeiras (+35 XP)"
+      }
+    ],
+    "merchants": [
+      {
+        "id": 151,
+        "name": "Bar do Coronel",
+        "category": "Gastronomia",
+        "description": "Patrimônio gastronômico joseense desde 1993, famoso pelos bolinhos artesanais de bacalhau e feijoada tradicional.",
+        "location": "Rua Francisco Rafael, 298 - Centro",
+        "phone": "(12) 3921-3141",
+        "whatsapp": "551239213141",
+        "imageUrl": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=600&q=80",
+        "rating": 4.9,
+        "reviewsCount": 1820,
+        "approved": true,
+        "coupons": [
+          {
+            "id": "CSJC1",
+            "code": "CORONEL10",
+            "description": "10% de desconto na porção mista de bolinhos",
+            "limit": 120,
+            "redeemed": 78,
+            "active": true
+          }
+        ]
+      },
+      {
+        "id": 152,
+        "name": "Villa Samaria Restaurante SFX",
+        "category": "Gastronomia",
+        "description": "Gastronomia contemporânea da Mantiqueira, servindo trutas com crosta de castanhas e massas frescas em meio à mata de SFX.",
+        "location": "Estrada do Pedro David, Km 8 - SFX",
+        "phone": "(12) 3926-1120",
+        "whatsapp": "551239261120",
+        "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+        "rating": 4.8,
+        "reviewsCount": 740,
+        "approved": true,
+        "coupons": [
+          {
+            "id": "CSJC2",
+            "code": "SAMARIA15",
+            "description": "15% de desconto no Prato Principal de Truta com Pinhão",
+            "limit": 80,
+            "redeemed": 41,
+            "active": true
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "id": 251,
+        "name": "Festival de Inverno de São Francisco Xavier",
+        "description": "Apresentações de jazz, música instrumental e feira de produtores rurais de azeite e queijo da Mantiqueira.",
+        "date": "10 a 26 de Julho, 2026",
+        "location": "Praça Central de São Francisco Xavier",
+        "category": "Música & Cultura",
+        "active": true
+      }
+    ]
+  },
+  "pindamonhangaba": {
+    "id": "pindamonhangaba",
+    "slug": "pindamonhangaba",
+    "name": "Pindamonhangaba",
+    "uf": "SP",
+    "tagline": "Princesa do Norte • Roteiros Históricos e Rurais da Mantiqueira",
+    "badge": "🏛️ Patrimônio Histórico & Ecoturismo Rural",
+    "heroTitle": "O Sistema de Inteligência Territorial de Pindamonhangaba",
+    "heroSubtitle": "Conectando o Bosque da Princesa, a Fazenda Nova Gokula, a Estrada de Ferro e a gastronomia caipira pelo WhatsApp.",
+    "temp": "22°C",
+    "altitude": "550m",
+    "population": "170.000 hab",
+    "annualTourists": "520.000/ano",
+    "publicServices": {
+      "prefeitura": "(12) 3644-5600",
+      "posto": "(12) 3644-2000 - Pronto Socorro Municipal (Rua Frederico Machado)",
+      "policia": "190",
+      "samu": "192",
+      "centroTurismo": "(12) 3643-1761 - Palacete 10 de Julho"
+    },
+    "chatWelcome": "👋 Olá! Sou o *Guia Fácil*, seu concierge oficial de **Pindamonhangaba**! 🏛️\n\nPara eu te passar as melhores dicas sob medida: **quem está viajando com você hoje?**",
+    "quickSuggestions": [
+      "👨‍👩‍👧‍👦 Família com Crianças",
+      "🏛️ História & Bosque da Princesa",
+      "🧘 Retiro & Nova Gokula",
+      "🥘 Sabores & Comida Caipira",
+      "O que fazer hoje?"
+    ],
+    "stats": {
+      "activeVisitorsToday": 5400,
+      "monthlyVisitors": 53000,
+      "monthlyVisitorsChange": "+14.8%",
+      "estimatedTourismRevenue": 16400000,
+      "estimatedTourismRevenueChange": "+18.1%",
+      "hotelOccupancyRate": 81.5,
+      "hotelOccupancyRateChange": "+5.5%",
+      "activeMerchants": 88,
+      "averageSpending": {
+        "hospedagem": 310,
+        "alimentacao": 150,
+        "compras": 110,
+        "ingressos": 40
+      },
+      "visitorFlowChart": [
+        {
+          "month": "Jan",
+          "visitors": 42000
+        },
+        {
+          "month": "Fev",
+          "visitors": 36000
+        },
+        {
+          "month": "Mar",
+          "visitors": 31000
+        },
+        {
+          "month": "Abr",
+          "visitors": 44000
+        },
+        {
+          "month": "Mai",
+          "visitors": 49000
+        },
+        {
+          "month": "Jun",
+          "visitors": 58000
+        },
+        {
+          "month": "Jul",
+          "visitors": 72000
+        },
+        {
+          "month": "Ago",
+          "visitors": 49000
+        },
+        {
+          "month": "Set",
+          "visitors": 42000
+        },
+        {
+          "month": "Out",
+          "visitors": 46000
+        },
+        {
+          "month": "Nov",
+          "visitors": 48000
+        },
+        {
+          "month": "Dez",
+          "visitors": 59000
+        }
+      ],
+      "touristOrigin": [
+        {
+          "state": "São Paulo",
+          "percentage": 78
+        },
+        {
+          "state": "Rio de Janeiro",
+          "percentage": 11
+        },
+        {
+          "state": "Minas Gerais",
+          "percentage": 7
+        },
+        {
+          "state": "Outros",
+          "percentage": 4
+        }
+      ]
+    },
+    "simulationStats": {
+      "cityName": "Pindamonhangaba",
+      "totalAgents": 32,
+      "totalQueries": 154,
+      "couponsRedeemed": 44,
+      "checkinsDone": 46,
+      "totalXp": 2420,
+      "stimulatedRevenue": 7180.0,
+      "dispersionRate": 70.2,
+      "dispersionAnalysis": "Forte direcionamento de fluxo turístico do centro histórico para a Rota dos Tropeiros no Bairro do Ribeirão Grande.",
+      "topicCounts": [
+        {
+          "name": "Bosque da Princesa & Margens do Rio",
+          "count": 52,
+          "pct": 33.8
+        },
+        {
+          "name": "Fazenda Nova Gokula & Retiros",
+          "count": 42,
+          "pct": 27.3
+        },
+        {
+          "name": "Gastronomia Caipira & Fogão a Lenha",
+          "count": 32,
+          "pct": 20.8
+        },
+        {
+          "name": "Palacete 10 de Julho & Museu",
+          "count": 18,
+          "pct": 11.7
+        },
+        {
+          "name": "Passeio de Trem da Serra",
+          "count": 10,
+          "pct": 6.5
+        }
+      ],
+      "merchantCoupons": [
+        {
+          "name": "Restaurante Colmeia da Terra",
+          "code": "COLMEIA15",
+          "discount": "15% Almoço Caipira no Fogão a Lenha",
+          "redeemed": 21,
+          "tag": "Ribeirão Grande",
+          "color": "var(--primary)"
+        },
+        {
+          "name": "Armazém do Pão & Empório",
+          "code": "ARMAZEM10",
+          "discount": "10% Café Colonial da Tarde",
+          "redeemed": 14,
+          "tag": "Centro",
+          "color": "var(--secondary)"
+        },
+        {
+          "name": "Cervejaria Pindaíba",
+          "code": "PINDAIBA",
+          "discount": "Caneca de Chopp Cortesia",
+          "redeemed": 9,
+          "tag": "Artesanal",
+          "color": "#f59e0b"
+        }
+      ],
+      "agentFeed": [
+        {
+          "id": "agente_08",
+          "archetype": "Família com Crianças",
+          "time": "Sábado 10:30",
+          "query": "Lugar sombreado com parquinho para passar a manhã?",
+          "aiReply": "Bosque da Princesa com árvores centenárias às margens do Rio Paraíba do Sul e aluguel de pedalinho.",
+          "action": "Check-in no Bosque da Princesa (+40 XP)",
+          "badgeColor": "rgba(0, 196, 140, 0.2)",
+          "textColor": "#00c48c"
+        },
+        {
+          "id": "agente_17",
+          "archetype": "Ecoturista / Retiro",
+          "time": "Sábado 14:00",
+          "query": "Como visitar a comunidade ecológica de Nova Gokula?",
+          "aiReply": "Acesso pela Estrada do Ribeirão Grande: comunidade védica com restaurante vegetariano, vacaria e banho de rio cristalino.",
+          "action": "Check-in em Nova Gokula (+50 XP)",
+          "badgeColor": "rgba(56, 189, 248, 0.2)",
+          "textColor": "#38bdf8"
+        }
+      ]
+    },
+    "attractions": [
+      {
+        "id": 61,
+        "name": "Bosque da Princesa",
+        "category": "Natureza",
+        "description": "Parque municipal centenário às margens do Rio Paraíba do Sul, com mais de 500 espécies de árvores nativas, lago com pedalinho, parquinho infantil e biblioteca.",
+        "location": "Rua Barão da Princesa, Centro",
+        "hours": "Diariamente, das 7h às 18h",
+        "price": "Gratuito",
+        "rating": 4.8,
+        "reviewsCount": 3120,
+        "imageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Amigo do Bosque (+40 XP)"
+      },
+      {
+        "id": 62,
+        "name": "Fazenda Nova Gokula",
+        "category": "Cultura",
+        "description": "A maior comunidade Hare Krishna da América Latina, situada em área de proteção ambiental na Serra da Mantiqueira, com templo, trilhas e culinária vegetariana.",
+        "location": "Estrada Municipal Jesus Antônio de Miranda, Km 8 - Ribeirão Grande",
+        "hours": "Sábados, domingos e feriados, das 9h às 17h",
+        "price": "R$ 10,00 (estacionamento)",
+        "rating": 4.9,
+        "reviewsCount": 2780,
+        "imageUrl": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Paz na Mantiqueira (+50 XP)"
+      },
+      {
+        "id": 63,
+        "name": "Palacete 10 de Julho",
+        "category": "Cultura",
+        "description": "Casarão neoclássico construído pelo Barão de Itapeva no século XIX, que hospedou a Princesa Isabel e o Conde d'Eu, hoje restaurado como centro cultural.",
+        "location": "Rua Dep. Claro César, 33 - Centro",
+        "hours": "Segunda a sexta, das 8h às 17h",
+        "price": "Gratuito",
+        "rating": 4.7,
+        "reviewsCount": 1150,
+        "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80",
+        "featured": true,
+        "checkInReward": "Medalha Patrimônio Imperial (+35 XP)"
+      },
+      {
+        "id": 64,
+        "name": "Estação Ferroviária de Pindamonhangaba (EFCJ)",
+        "category": "Cultura",
+        "description": "Ponto de partida dos trens turísticos que sobem a serra rumo a Santo Antônio do Pinhal e Campos do Jordão, com acervo histórico ferroviário.",
+        "location": "Rua Engenheiro Central, 160",
+        "hours": "Quarta a domingo, das 8h às 17h",
+        "price": "Consulta na bilheteria",
+        "rating": 4.6,
+        "reviewsCount": 1890,
+        "imageUrl": "https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=600&q=80",
+        "featured": false,
+        "checkInReward": "Medalha Nos Trilhos da Serra (+40 XP)"
+      }
+    ],
+    "merchants": [
+      {
+        "id": 161,
+        "name": "Restaurante Colmeia da Terra",
+        "category": "Gastronomia",
+        "description": "Famoso almoço caipira no fogão a lenha, leitoa à pururuca, tutu de feijão, frango com quiabo e doces caseiros típicos.",
+        "location": "Estrada do Ribeirão Grande, Km 4",
+        "phone": "(12) 3645-1212",
+        "whatsapp": "551236451212",
+        "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+        "rating": 4.9,
+        "reviewsCount": 920,
+        "approved": true,
+        "coupons": [
+          {
+            "id": "CPIN1",
+            "code": "COLMEIA15",
+            "description": "15% de desconto no almoço colonial no fogão a lenha",
+            "limit": 100,
+            "redeemed": 55,
+            "active": true
+          }
+        ]
+      },
+      {
+        "id": 162,
+        "name": "Cervejaria Pindaíba",
+        "category": "Gastronomia",
+        "description": "Cervejaria artesanal local com chope puro malte, petiscos da serra e música ao vivo aos finais de semana.",
+        "location": "Av. Albuquerque Lins, 450",
+        "phone": "(12) 99744-1188",
+        "whatsapp": "5512997441188",
+        "imageUrl": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=600&q=80",
+        "rating": 4.7,
+        "reviewsCount": 610,
+        "approved": true,
+        "coupons": [
+          {
+            "id": "CPIN2",
+            "code": "PINDAIBA",
+            "description": "Pague 1 leve 2 no chope artesanal 500ml",
+            "limit": 80,
+            "redeemed": 46,
+            "active": true
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "id": 261,
+        "name": "Festival das Nações de Pindamonhangaba",
+        "description": "Gastronomia típica mundial, danças folclóricas e apresentações culturais no Parque da Cidade.",
+        "date": "18 a 21 de Junho, 2026",
+        "location": "Parque da Cidade de Pindamonhangaba",
+        "category": "Cultura & Gastronomia",
+        "active": true
+      }
+    ]
+  }
+}

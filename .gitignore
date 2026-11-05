@@ -1,0 +1,15 @@
+node_modules/
+.env
+*.log
+*.ps1
+generate_*.py
+fix_*.py
+update_*.py
+remove_*.py
+build_*.py
+apply_*.py
+insert_*.py
+master_*.py
+safe_*.py
+check_*.ps1
+.DS_Store

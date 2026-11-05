@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mirofish:
+    image: 666ghj/mirofish:latest
+    container_name: mirofish_engine
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"   # MiroFish Web Dashboard (Vue.js)
+      - "5001:5001"   # MiroFish Simulation API (Python / OASIS Engine)
+    restart: unless-stopped
+    volumes:
+      # Uploads persistentes e sementes de simulação
+      - ./uploads:/app/backend/uploads
+      - ./seed_material_guia_facil.md:/app/backend/uploads/seed_material_guia_facil.md:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - FLASK_ENV=production

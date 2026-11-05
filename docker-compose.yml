@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  # 1. Serviço de Banco de Dados PostgreSQL
+  db:
+    image: postgres:16-alpine
+    container_name: guia_facil_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: guia_facil
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # 2. Serviço da API SaaS do Node.js
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: guia_facil_api
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      PORT: 5000
+      DATABASE_URL: postgres://postgres:postgres@db:5432/guia_facil
+      JWT_SECRET: supersecretjwtkeyforguiafacilsaas2026
+      NODE_ENV: development
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
