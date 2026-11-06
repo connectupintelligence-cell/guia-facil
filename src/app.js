@@ -3006,52 +3006,53 @@ function setTouristProfile(profileKey) {
 
   setTimeout(() => {
     const city = getCurrentCity();
-    const cityLines = LOGICAL_LINES[city.id] || LOGICAL_LINES['camposdojordao'];
-    const plan = (cityLines && cityLines[profileKey]) ? cityLines[profileKey] : (cityLines ? cityLines.casal : null);
+    let questionText = '';
+    let quickOptions = [];
 
-    let reply = '';
-    if (plan) {
-      reply = `✨ *${plan.title}* (${city.name}):
-
-` +
-        `🏨 *1. Onde Ficar*: ${plan.stay}
-` +
-        `🌸 *2. Manhã & Passeio*: ${plan.morning}
-` +
-        `🍴 *3. Almoço Típico*: ${plan.lunch}
-` +
-        `🌄 *4. Tarde & Vista*: ${plan.afternoon}
-` +
-        `🍦 *5. Sobremesa / Sorvete*: ${plan.icecream}
-` +
-        `🍷 *6. Noite & Jantar*: ${plan.dinner}
-
-` +
-        `🏷️ *Cupom Exclusivo*: *${plan.coupon}*
-
-` +
-        `💬 *Como posso te ajudar agora?* Digite:
-` +
-        `• _"Onde almoçar?"_ (ver restaurantes)
-` +
-        `• _"Onde tomar sorvete?"_ (doces e mirantes)
-` +
-        `• _"Pousadas recomendadas"_
-` +
-        `• _"Quero cupons"_`;
+    if (profileKey === 'familia') {
+      questionText = `Maravilha! **${city.name}** com crianças é uma excelente escolha. 👨‍👩‍👧‍👦🎈\n\nPara eu montar o roteiro ideal para vocês:\n👉 **O que vocês mais gostariam de aproveitar hoje?**`;
+      quickOptions = [
+        "🌿 Passeio ao Ar Livre & Natureza",
+        "🍴 Almoço Tranquilo com Crianças",
+        "🍦 Tomar Sorvete & Ver Vista",
+        "🏨 Pousada com Espaço Kids"
+      ];
+    } else if (profileKey === 'casal') {
+      questionText = `Perfeito! **${city.name}** a dois tem um clima muito especial. 👫✨\n\nPara eu desenhar um roteiro personalizado para vocês:\n👉 **Qual o plano principal de vocês hoje?**`;
+      quickOptions = [
+        "🌸 Passeio Romântico & Fotos",
+        "🍷 Almoço ou Jantar a Dois",
+        "🌄 Pôr do Sol & Vista Panorâmica",
+        "🏨 Chalé ou Pousada de Charme"
+      ];
+    } else if (profileKey === 'aventura') {
+      questionText = `Show! **${city.name}** tem cenários perfeitos para ecoturismo. 🧗⛰️\n\nPara montar seu roteiro de aventura:\n👉 **Qual a prioridade de vocês hoje?**`;
+      quickOptions = [
+        "🧗 Trilha & Pico de Montanha",
+        "💦 Cachoeira & Banho de Rio",
+        "🍔 Comida Caipira & Chopp",
+        "⛺ Pousada Rural ou Refúgio"
+      ];
     } else {
-      reply = `Excelente! Salvei seu perfil como *${label}*. Vou guiar você pelos melhores atrativos e restaurantes de ${city.name} sob medida!`;
+      questionText = `Excelente! **${city.name}** é um destino incrível para boa mesa e cultura. 🍷🍽️\n\nPara montar seu roteiro personalizado:\n👉 **O que você deseja explorar primeiro hoje?**`;
+      quickOptions = [
+        "🍴 Prato Típico & Restaurante",
+        "🧀 Queijos, Doces & Artesanato",
+        "🏛️ Patrimônio Histórico & Museus",
+        "☕ Cafés Especiais & Pousada"
+      ];
     }
 
     state.chatMessages.push({
       sender: 'assistant',
-      text: reply,
+      text: questionText,
+      quickOptions,
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       read: true
     });
     state.chatTyping = false;
     renderApp();
-  }, 600);
+  }, 500);
 }
 
 function getLocalChatReply(message) {
@@ -3060,42 +3061,29 @@ function getLocalChatReply(message) {
   const profile = state.touristProfile || 'casal';
   const cityLines = LOGICAL_LINES[city.id] || LOGICAL_LINES['camposdojordao'];
   const plan = (cityLines && cityLines[profile]) ? cityLines[profile] : (cityLines ? cityLines.casal : null);
+  const attractions = state.attractions || [];
+  const merchants = state.merchants || [];
   let reply = '';
 
-  // 0. Roteiro Completo / Linha Lógica do Dia
+  // 1. SORVETE / SOBREMESA / DOCE
   if (
-    prompt.includes('roteiro') ||
-    prompt.includes('linha logica') ||
-    prompt.includes('linha lógica') ||
-    prompt.includes('o que fazer hoje') ||
-    prompt.includes('programação') ||
-    prompt.includes('itinerario') ||
-    prompt.includes('itinerário')
+    prompt.includes('sorvete') ||
+    prompt.includes('gelato') ||
+    prompt.includes('sobremesa') ||
+    prompt.includes('doce') ||
+    prompt.includes('chocolat') ||
+    prompt.includes('café da tarde') ||
+    prompt.includes('cafe da tarde')
   ) {
-    if (plan) {
-      return `🧭 *${plan.title}* (${city.name}):
-
-` +
-        `🏨 *Onde Ficar*: ${plan.stay}
-` +
-        `🌸 *Manhã*: ${plan.morning}
-` +
-        `🍴 *Almoço*: ${plan.lunch}
-` +
-        `🌄 *Tarde & Vista*: ${plan.afternoon}
-` +
-        `🍦 *Sobremesa / Sorvete*: ${plan.icecream}
-` +
-        `🍷 *Noite & Jantar*: ${plan.dinner}
-
-` +
-        `🏷️ Cupom do Comércio: *${plan.coupon}*
-` +
-        `Deseja reservar algum desses locais ou ver o mapa?`;
+    if (plan && plan.icecream) {
+      return `🍦 *Sobremesa & Sabores Doces em ${city.name}:*\n\n` +
+        `📍 *Sugestão Personalizada*: ${plan.icecream}\n` +
+        `💡 _Dica Local_: Parada perfeita para recarregar as energias e apreciar a praça ou centrinho.\n\n` +
+        `Quer esticar para o jantar mais tarde? Digite *'onde jantar'*!`;
     }
   }
 
-  // 0.1 Vista / Mirante / Pôr do Sol
+  // 2. VISTA / MIRANTE / PÔR DO SOL
   if (
     prompt.includes('vista') ||
     prompt.includes('mirante') ||
@@ -3104,44 +3092,42 @@ function getLocalChatReply(message) {
     prompt.includes('panorâmica') ||
     prompt.includes('panoramica')
   ) {
-    if (plan) {
-      return `🌄 *Melhor Vista & Pôr do Sol em ${city.name}:*
-
-` +
-        `📍 *Sugestão Curada*: ${plan.afternoon}
-` +
-        `💡 _Dica do Concierge_: Chegue por volta das 17h para pegar a melhor luz da Mantiqueira e tirar fotos incríveis!
-
-` +
-        `Depois da vista, que tal uma sobremesa ou café? Digite *'sorvete'* ou *'onde jantar'*!`;
+    if (plan && plan.afternoon) {
+      return `🌄 *Melhor Vista & Pôr do Sol em ${city.name}:*\n\n` +
+        `📍 *Sugestão Especial*: ${plan.afternoon}\n` +
+        `💡 _Dica do Concierge_: Chegue por volta das 17h para pegar a luz dourada da serra para fotos lindas!\n\n` +
+        `Depois da vista, quer sugestão de jantar ou fondue? Digite *'onde jantar'*!`;
     }
   }
 
-  // 0.2 Sorvete / Sobremesa / Doce / Café
+  // 3. ROTEIRO PERSONALIZADO (Quando responde à pergunta de intenção ou pede roteiro)
   if (
-    prompt.includes('sorvete') ||
-    prompt.includes('gelato') ||
-    prompt.includes('sobremesa') ||
-    prompt.includes('doce') ||
-    prompt.includes('chocolat') ||
-    prompt.includes('café da tarde')
+    prompt.includes('roteiro') ||
+    prompt.includes('passeio') ||
+    prompt.includes('ar livre') ||
+    prompt.includes('natureza') ||
+    prompt.includes('romântico') ||
+    prompt.includes('romantico') ||
+    prompt.includes('trilha') ||
+    prompt.includes('pico') ||
+    prompt.includes('cachoeira') ||
+    prompt.includes('patrimônio') ||
+    prompt.includes('museu') ||
+    prompt.includes('histórico') ||
+    prompt.includes('o que fazer') ||
+    prompt.includes('hoje')
   ) {
     if (plan) {
-      return `🍦 *Sobremesa & Sabores Doces em ${city.name}:*
-
-` +
-        `📍 *Recomendação do seu perfil*: ${plan.icecream}
-` +
-        `💡 _Tradição Local_: Os estabelecimentos parceiros utilizam frutas e leite da região serrana/caiçara.
-
-` +
-        `Quer esticar para o jantar? Digite *'onde jantar'*!`;
+      return `✨ *Roteiro Personalizado para seu perfil em ${city.name}:*\n\n` +
+        `📍 *1. Manhã*: ${plan.morning}\n` +
+        `📍 *2. Almoço*: ${plan.lunch}\n` +
+        `📍 *3. Tarde & Vista*: ${plan.afternoon}\n\n` +
+        `🏷️ *Cupom Exclusivo no Comércio*: Código *${plan.coupon}*\n\n` +
+        `Deseja que eu te envie o mapa para chegar em algum desses pontos?`;
     }
   }
 
-
-
-  // 1. Gastronomia / Onde comer (prioridade quando cita alimentação e restaurantes)
+  // 4. GASTRONOMIA / ALMOÇO / JANTAR / COMER
   if (
     prompt.includes('comer') ||
     prompt.includes('almoçar') ||
@@ -3149,106 +3135,75 @@ function getLocalChatReply(message) {
     prompt.includes('almoço') ||
     prompt.includes('almoco') ||
     prompt.includes('jantar') ||
-    prompt.includes('petiscar') ||
-    prompt.includes('petisco') ||
-    prompt.includes('pizza') ||
-    prompt.includes('lanche') ||
-    prompt.includes('bar') ||
-    prompt.includes('café') ||
-    prompt.includes('cafe') ||
     prompt.includes('restaurante') ||
-    prompt.includes('gastronomia') ||
+    prompt.includes('petiscar') ||
+    prompt.includes('pizza') ||
     prompt.includes('fondue') ||
     prompt.includes('truta') ||
-    prompt.includes('chopp') ||
-    prompt.includes('cervejaria') ||
-    prompt.includes('peixe') ||
     prompt.includes('fome')
   ) {
-    reply = `🍴 *Onde comer em ${city.name}:*\n\n`;
-    const foodMerchants = state.merchants.filter(m => m.approved && (m.category === 'Gastronomia' || m.category === 'Comércio')).slice(0, 3);
+    const foodMerchants = merchants.filter(m => m.approved && (m.category === 'Gastronomia' || m.category === 'Comércio')).slice(0, 2);
+    reply = `🍴 *Sugestão Gastronômica Personalizada em ${city.name}:*\n\n`;
     
     if (foodMerchants.length > 0) {
       foodMerchants.forEach((m, i) => {
-        reply += `${i + 1}. *${m.name}*\n   📍 ${m.location}\n   📝 _${m.description.substring(0, 90)}..._\n   💬 WhatsApp: https://wa.me/${m.whatsapp}\n\n`;
+        reply += `${i + 1}. *${m.name}*\n   📍 ${m.location}\n   📝 _${m.description.substring(0, 85)}..._\n   💬 WhatsApp: https://wa.me/${m.whatsapp}\n\n`;
       });
-      reply += `🏷️ Digite *'cupons'* para ver ofertas ativas nesses locais!`;
-    } else {
-      reply += `Consulte nossos comércios parceiros no painel municipal.`;
-    }
-  }
-  // 2. Atrativos / O que fazer / Passeios (respostas enxutas, 2 a 3 itens)
-  else if (
-    prompt.includes('o que fazer') ||
-    prompt.includes('atrativo') ||
-    prompt.includes('turismo') ||
-    prompt.includes('visitar') ||
-    prompt.includes('passeio') ||
-    prompt.includes('tarde') ||
-    prompt.includes('manhã') ||
-    prompt.includes('manha') ||
-    prompt.includes('noite') ||
-    prompt.includes('hoje')
-  ) {
-    reply = `🌲 *Sugestão de Passeio em ${city.name}:*\n\n`;
-    
-    // Filtra atrativos priorizando o perfil se houver
-    let selected = state.attractions.slice(0, 3);
-    if (profile === 'familia' || prompt.includes('criança') || prompt.includes('crianca') || prompt.includes('familia')) {
-      selected = state.attractions.filter(a => a.category === 'Natureza' || a.category === 'Lazer' || a.name.includes('Parque') || a.name.includes('Bosque')).slice(0, 3);
-      if (selected.length === 0) selected = state.attractions.slice(0, 3);
-    } else if (profile === 'aventura' || prompt.includes('trilha') || prompt.includes('escalada')) {
-      selected = state.attractions.filter(a => a.category === 'Aventura' || a.name.includes('Pedra') || a.name.includes('Pico')).slice(0, 3);
-      if (selected.length === 0) selected = state.attractions.slice(0, 3);
+    } else if (plan) {
+      reply += `📍 *Recomendação do Concierge*: ${plan.lunch}\n\n`;
     }
 
-    selected.forEach((a, i) => {
-      reply += `${i + 1}. *${a.name}* (${a.category})\n   📍 ${a.location}\n   💡 _${a.description.substring(0, 95)}..._\n   🎁 Check-in: [Fazer Check-in ${a.id}]\n\n`;
-    });
-    reply += `Quer opções de restaurantes ou pousadas por perto?`;
+    if (plan && plan.coupon) {
+      reply += `🏷️ *Cupom Ativo*: Use *${plan.coupon}* para garantir desconto especial da prefeitura/comércio!`;
+    } else {
+      reply += `🏷️ Digite *'cupom'* para ver ofertas ativas nesses locais!`;
+    }
+    return reply;
   }
-  // 3. Hospedagem / Pousada
-  else if (
+
+  // 5. POUSADA / HOSPEDAGEM / DORMIR
+  if (
     prompt.includes('pousada') ||
     prompt.includes('hotel') ||
     prompt.includes('hospedar') ||
-    prompt.includes('hospedagem') ||
+    prompt.includes('dormir') ||
     prompt.includes('chalé') ||
-    prompt.includes('onde ficar') ||
-    prompt.includes('dormir')
+    prompt.includes('chale')
   ) {
-    reply = `🏨 *Hospedagens Recomendadas em ${city.name}:*\n\n`;
-    const lodges = state.merchants.filter(m => m.category === 'Hospedagem').slice(0, 3);
-    if (lodges.length > 0) {
-      lodges.forEach((h, i) => {
-        reply += `${i + 1}. *${h.name}*\n   📍 ${h.location}\n   💬 Reservas: https://wa.me/${h.whatsapp}\n\n`;
-      });
-      reply += `Reserve direto pelo WhatsApp para garantir tarifas municipais!`;
-    } else {
-      reply += `Temos uma rede de pousadas e chalés cadastrados. Entre em contato com a Secretaria de Turismo para o catálogo completo.`;
+    if (plan && plan.stay) {
+      return `🏨 *Hospedagem Recomendada para seu perfil em ${city.name}:*\n\n` +
+        `📍 *Sugestão Curada*: ${plan.stay}\n` +
+        `💡 _Dica_: Entre em contato direto com a rede credenciada de ${city.name} para garantir as tarifas exclusivas do Guia Fácil!\n\n` +
+        `Quer ver opções de passeios próximos à sua pousada?`;
     }
   }
-  // 4. Cupons de Desconto
-  else if (
+
+  // 6. CUPONS DE DESCONTO
+  if (
     prompt.includes('cupom') ||
     prompt.includes('cupons') ||
     prompt.includes('desconto') ||
-    prompt.includes('promoção')
+    prompt.includes('promoção') ||
+    prompt.includes('promocao')
   ) {
     reply = `🏷️ *Cupons Oficiais Ativos em ${city.name}:*\n\n`;
     let count = 0;
-    state.merchants.filter(m => m.approved).forEach(m => {
+    merchants.filter(m => m.approved).forEach(m => {
       (m.coupons || []).forEach(c => {
-        if (count < 4 && c.active) {
+        if (count < 3 && c.active) {
           reply += `🎁 *${m.name}*\n🔹 ${c.description}\n🔑 Código: *${c.code}*\n[Resgatar Cupom ${c.code}]\n\n`;
           count++;
         }
       });
     });
-    if (count === 0) reply += "Nenhum cupom ativo no momento para esta cidade.";
+    if (count === 0 && plan) {
+      reply += `🎁 *Oferta Homologada*: ${plan.coupon}\n\n`;
+    }
+    return reply;
   }
-  // 5. Utilidade Pública / Prefeitura / Saúde
-  else if (
+
+  // 7. PREFEITURA / SAÚDE / TELEFONES ÚTEIS
+  if (
     prompt.includes('prefeitura') ||
     prompt.includes('hospital') ||
     prompt.includes('posto') ||
@@ -3259,28 +3214,22 @@ function getLocalChatReply(message) {
     prompt.includes('telefone') ||
     prompt.includes('emergência')
   ) {
-    const pub = city.publicServices;
-    reply = `🏥 *Telefones Úteis de ${city.name}:*\n\n` +
-      `🏛️ Prefeitura: *${pub.prefeitura}*\n` +
-      `🩺 Pronto Atendimento: *${pub.posto}*\n` +
-      `🚓 Polícia Militar: *190* | 🚑 SAMU: *192*\n` +
-      (pub.salvaVidas ? `🛟 Salva-Vidas / Bombeiros: *${pub.salvaVidas}*\n` : '') +
-      (pub.centroTurismo ? `ℹ️ Centro de Informações: *${pub.centroTurismo}*\n` : '');
-  }
-  // 6. Resposta Padrão Enxuta
-  else {
-    reply = `Sou o concierge oficial de *${city.name}*. Posso te indicar:\n\n` +
-      `• *O que fazer* (passeios selecionados)\n` +
-      `• *Onde comer* (gastronomia recomendada)\n` +
-      `• *Pousadas* (chalés e reservas)\n` +
-      `• *Cupons* (descontos no comércio local)\n` +
-      `• *Prefeitura e Saúde* (contatos úteis)\n\n` +
-      `O que procura para seu dia hoje?`;
+    const pub = city.publicServices || {};
+    return `🏥 *Serviços Públicos de ${city.name}:*\n\n` +
+      `🏛️ Prefeitura: *${pub.prefeitura || '(12) 3000-0000'}*\n` +
+      `🩺 Pronto Atendimento / UPA: *${pub.posto || 'Posto Central'}*\n` +
+      `🚓 Polícia: *190* | 🚑 SAMU: *192*\n\n` +
+      `Guarde estes contatos de emergência durante sua estadia!`;
   }
 
-  return reply;
+  // 8. Resposta Padrão Amigável e Curta
+  return `Olá! Sou o concierge oficial de *${city.name}*.\n\n` +
+    `Para eu montar uma dica sob medida para você:\n` +
+    `• Deseja um *roteiro personalizado* para hoje?\n` +
+    `• Quer saber *onde almoçar* ou *onde jantar*?\n` +
+    `• Procura os melhores *mirantes* ou *sorveterias*?\n\n` +
+    `Basta me dizer o que procura!`;
 }
-
 async function handleChatSend(e) {
   if (e) e.preventDefault();
   const inputEl = document.getElementById('chat-text-input');
@@ -3671,6 +3620,21 @@ function getVisitorPortalHtml() {
       <div style="display: flex; justify-content: ${align}; margin-bottom: 16px; width: 100%;">
         <div class="glass-panel" style="max-width: 85%; padding: 12px 16px; border-radius: 16px; background: ${bg}; border: ${border}; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative; word-break: break-word;">
           <p style="font-size: 14px; line-height: 1.5; color: white; margin: 0 0 4px 0;">${formattedText}</p>
+          ${msg.quickOptions && msg.quickOptions.length > 0 ? `
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08);">
+              ${msg.quickOptions.map(opt => `
+                <button 
+                  onclick="app.handleChatSuggestion('${opt.replace(/'/g, "\\'")}')" 
+                  class="btn btn-sm" 
+                  style="justify-content: flex-start; text-align: left; background: rgba(0, 196, 140, 0.12); border: 1px solid rgba(0, 196, 140, 0.3); color: #00c48c; font-size: 12px; font-weight: 600; padding: 7px 12px; border-radius: 8px; cursor: pointer; transition: all 0.2s;"
+                  onmouseover="this.style.background='rgba(0,196,140,0.25)'"
+                  onmouseout="this.style.background='rgba(0,196,140,0.12)'"
+                >
+                  ${opt}
+                </button>
+              `).join('')}
+            </div>
+          ` : ''}
           <div style="display: flex; align-items: center; justify-content: flex-end; gap: 4px; font-size: 10px; color: var(--text-muted); text-align: right;">
             <span>${msg.time}</span>
             ${isUser ? `<i data-lucide="check-check" style="width: 12px; height: 12px; color: var(--primary);"></i>` : ''}
