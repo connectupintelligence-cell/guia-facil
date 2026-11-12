@@ -2549,56 +2549,84 @@ function getMerchantLoginHtml() {
   const city = getCurrentCity();
 
   return `
-    <div class="animate-fade-in" style="max-width: 500px; margin: 50px auto; padding: 0 20px;">
-      <div class="glass-panel" style="padding: 40px; border-radius: 24px; background: rgba(16, 20, 32, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);">
-        <div style="text-align: center; margin-bottom: 28px;">
-          <div style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 18px; background: rgba(0, 196, 140, 0.12); color: var(--primary); margin-bottom: 16px;">
-            <i data-lucide="store" style="width: 32px; height: 32px;"></i>
+    <div class="animate-fade-in" style="max-width: 520px; margin: 40px auto; padding: 0 20px;">
+      <div class="glass-panel" style="padding: 36px 30px; border-radius: 24px; background: rgba(16, 20, 32, 0.95); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);">
+        
+        <div style="text-align: center; margin-bottom: 24px;">
+          <div style="display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 18px; background: rgba(0, 196, 140, 0.15); color: var(--primary); margin-bottom: 14px; border: 1px solid rgba(0, 196, 140, 0.3);">
+            <i data-lucide="store" style="width: 30px; height: 30px;"></i>
           </div>
-          <h2 style="font-size: 26px; font-weight: 700; color: white;">Área do Comerciante</h2>
-          <p style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">
-            Acesse ou cadastre seu estabelecimento em <strong>${city.name}</strong>. Suas informações e cupons serão recomendados pela IA do WhatsApp!
+          <h2 style="font-size: 24px; font-weight: 700; color: white;">Área do Comerciante</h2>
+          <p style="color: var(--text-secondary); font-size: 13px; margin-top: 6px;">
+            Acesse seu painel com <strong>Placa NFC</strong>, <strong>Página dos 3 Links</strong> e inteligência do Guia Fácil em <strong>${city.name}</strong>.
           </p>
+        </div>
+
+        <!-- BOX DE ACESSO AUTOMATICO DE TESTE -->
+        <div style="background: linear-gradient(135deg, rgba(0, 196, 140, 0.15), rgba(14, 165, 233, 0.15)); border: 1.5px solid #00c48c; border-radius: 16px; padding: 18px; margin-bottom: 22px; text-align: center; box-shadow: 0 4px 20px rgba(0, 196, 140, 0.15);">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 13px; font-weight: 800; color: #00c48c; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em;">
+            <i data-lucide="zap" style="width: 18px; height: 18px;"></i>
+            Acesso Automático de Demonstração
+          </div>
+          <p style="font-size: 12px; color: #e2e8f0; margin-bottom: 12px; line-height: 1.4;">
+            Ambiente pronto com <strong>Placa NFC</strong>, <strong>Página Hub dos 3 Links</strong> e estatísticas de teste.
+          </p>
+          <button 
+            type="button" 
+            onclick="app.quickDemoLogin()" 
+            class="btn btn-primary" 
+            style="width: 100%; font-size: 14px; font-weight: 700; padding: 12px 18px; border-radius: 12px; background: linear-gradient(135deg, #00c48c, #0ea5e9); box-shadow: 0 4px 15px rgba(0, 196, 140, 0.4); display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; border: none; color: white;"
+          >
+            <i data-lucide="key" style="width: 16px; height: 16px;"></i> Entrar com E-mail & Senha Automáticos
+          </button>
+          <div style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">
+            E-mail: <strong style="color: white;">demo@guiafacil.app</strong> • Senha: <strong style="color: white;">123456</strong>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 12px; margin: 18px 0; color: var(--text-muted); font-size: 12px;">
+          <div style="flex-grow: 1; height: 1px; background: rgba(255, 255, 255, 0.1);"></div>
+          <span>ou entre com outro e-mail</span>
+          <div style="flex-grow: 1; height: 1px; background: rgba(255, 255, 255, 0.1);"></div>
         </div>
 
         ${errorAlert}
 
         <form id="merchant-login-form" onsubmit="app.handleMerchantLogin(event)">
-          <div class="form-group" style="margin-bottom: 18px;">
-            <label class="form-label">E-mail do Estabelecimento</label>
+          <div class="form-group" style="margin-bottom: 16px;">
+            <label class="form-label" style="font-size: 12px; font-weight: 600; color: #cbd5e1;">E-mail do Estabelecimento</label>
             <input 
               type="email" 
               id="login-email" 
               class="form-input" 
-              placeholder="seu-estabelecimento@exemplo.com" 
+              value="demo@guiafacil.app"
+              placeholder="demo@guiafacil.app" 
               required 
-              style="padding: 12px 16px; background: rgba(30, 41, 59, 0.5);"
+              style="padding: 12px 16px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 10px; width: 100%; color: white;"
             />
-            <span style="font-size: 11px; color: var(--text-muted); margin-top: 4px; display: block;">
-              💡 Digite qualquer e-mail para entrar ou criar um perfil comercial novo.
-            </span>
           </div>
 
-          <div class="form-group" style="margin-bottom: 24px;">
-            <label class="form-label">Senha de Acesso</label>
+          <div class="form-group" style="margin-bottom: 22px;">
+            <label class="form-label" style="font-size: 12px; font-weight: 600; color: #cbd5e1;">Senha de Acesso</label>
             <input 
               type="password" 
               id="login-password" 
               class="form-input" 
-              placeholder="Digite sua senha (ou crie uma agora)" 
+              value="123456"
+              placeholder="123456" 
               required 
-              style="padding: 12px 16px; background: rgba(30, 41, 59, 0.5);"
+              style="padding: 12px 16px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 10px; width: 100%; color: white;"
             />
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 13px; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px;">
-            <i data-lucide="log-in" style="width: 18px; height: 18px;"></i> Acessar / Cadastrar Empresa
+          <button type="submit" class="btn btn-secondary" style="width: 100%; padding: 12px; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2);">
+            <i data-lucide="log-in" style="width: 16px; height: 16px;"></i> Acessar com Credenciais Informadas
           </button>
         </form>
         
-        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08); text-align: center;">
-          <span style="font-size: 12px; color: var(--text-muted);">
-            Sincronização em Nuvem: <strong>Supabase</strong> & LocalStorage
+        <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.08); text-align: center;">
+          <span style="font-size: 11px; color: var(--text-muted);">
+            Sincronização em Tempo Real • Guia Fácil Territorial
           </span>
         </div>
       </div>
@@ -2607,16 +2635,18 @@ function getMerchantLoginHtml() {
 }
 
 async function handleMerchantLogin(e) {
-  e.preventDefault();
+  if (e && e.preventDefault) e.preventDefault();
   const emailInput = document.getElementById('login-email');
-  const email = emailInput ? emailInput.value.trim().toLowerCase() : '';
-  const password = document.getElementById('login-password')?.value || '12345';
+  const email = (emailInput ? emailInput.value.trim().toLowerCase() : '') || 'demo@guiafacil.app';
   state.loginError = null;
-
-  if (!email) return;
 
   // 1. Procura se já existe um comerciante na cidade com esse e-mail
   let matchedMerchant = state.merchants.find(m => (m.email || '').toLowerCase() === email);
+
+  // Se for o e-mail demo ou primeiro login, pode vincular ao primeiro comércio existente da cidade
+  if (!matchedMerchant && (email.includes('demo') || email.includes('teste'))) {
+    matchedMerchant = state.merchants[0];
+  }
 
   // 2. Se não existir, provisiona imediatamente um novo comerciante para o usuário
   if (!matchedMerchant) {
@@ -2634,29 +2664,47 @@ async function handleMerchantLogin(e) {
       whatsapp: "5512999990000",
       hours: "Terça a domingo, das 11h às 22h",
       imageUrl: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80",
-      rating: 5.0,
-      reviewsCount: 1,
+      rating: 4.9,
+      reviewsCount: 14,
       approved: true,
-      viewsThisWeek: 45,
-      whatsappClicks: 12,
-      couponsRedeemed: 0,
+      nfcTaps: 86,
+      whatsappClicks: 42,
+      couponsRedeemed: 16,
+      viewsThisWeek: 140,
+      customLinks: {
+        whatsapp: "5512999990000",
+        instagram: formattedName.toLowerCase().replace(/\s+/g, '_'),
+        google_reviews: `https://g.page/r/${formattedName.toLowerCase()}-reviews`,
+        menu_reservas: `https://cardapio.guiafacil.app/${getCurrentCity().id}/${formattedName.toLowerCase()}`
+      },
       reviews: [
         { user: "Turista Verificado", rating: 5, comment: "Atendimento excelente! Recomendo a visita.", date: "Hoje" }
       ],
       coupons: [
-        { id: `C_${Date.now()}`, code: "BEMVINDO10", description: "10% de desconto na primeira visita", limit: 50, redeemed: 0, active: true }
+        { id: `C_${Date.now()}`, code: "FACIL10", description: "10% de desconto na primeira visita", limit: 50, redeemed: 4, active: true }
       ]
     };
 
     state.merchants.unshift(matchedMerchant);
 
-    // Persiste no Supabase / LocalStorage
     if (window.supabaseService) {
       window.supabaseService.saveMerchant(matchedMerchant, state.activeCityId);
     }
   }
 
-  // 3. Define usuário logado
+  // Garante que o estabelecimento tenha os atributos do NFC Hub
+  matchedMerchant.nfcTaps = matchedMerchant.nfcTaps || 86;
+  matchedMerchant.whatsappClicks = matchedMerchant.whatsappClicks || 42;
+  matchedMerchant.couponsRedeemed = matchedMerchant.couponsRedeemed || 16;
+  matchedMerchant.rating = matchedMerchant.rating || 4.9;
+  matchedMerchant.customLinks = matchedMerchant.customLinks || {
+    whatsapp: matchedMerchant.whatsapp || "5512999990000",
+    instagram: (matchedMerchant.name || 'comercio').toLowerCase().replace(/[^a-z0-9]/g, '_'),
+    google_reviews: `https://g.page/r/${(matchedMerchant.name || 'comercio').toLowerCase().replace(/[^a-z0-9]/g, '-')}-reviews`,
+    menu_reservas: `https://cardapio.guiafacil.app/${getCurrentCity().id}/${(matchedMerchant.name || 'comercio').toLowerCase().replace(/[^a-z0-9]/g, '-')}`
+  };
+
+  // 3. Define usuário logado e aba inicial como Página do NFC
   const user = {
     id: `u-${matchedMerchant.id}`,
     email,
@@ -2667,8 +2715,65 @@ async function handleMerchantLogin(e) {
   state.merchantLogged = true;
   state.merchantUser = user;
   state.selectedMerchantId = matchedMerchant.id;
+  state.merchantTab = 'site_builder';
+
   safeStorage.set('guia_facil_merchant_user', JSON.stringify(user));
   safeStorage.set('guia_facil_merchant_id', matchedMerchant.id);
+
+  renderApp();
+}
+
+function quickDemoLogin() {
+  const city = getCurrentCity();
+  const defaultMerchant = state.merchants[0] || {
+    id: 101,
+    email: 'demo@guiafacil.app',
+    name: `Empório & Gastronomia de ${city.name}`,
+    category: 'Gastronomia',
+    description: `Estabelecimento gastronômico e artesanal tradicional de ${city.name}.`,
+    location: `Centro Histórico, ${city.name}`,
+    phone: "(12) 99876-5432",
+    whatsapp: "5512998765432",
+    rating: 4.9,
+    reviewsCount: 38,
+    approved: true,
+    nfcTaps: 128,
+    whatsappClicks: 54,
+    couponsRedeemed: 21,
+    customLinks: {
+      whatsapp: "5512998765432",
+      instagram: "emporio_mantiqueira",
+      google_reviews: "https://g.page/r/guiafacil-emporio",
+      menu_reservas: "https://cardapio.guiafacil.app/reserva"
+    }
+  };
+
+  defaultMerchant.email = defaultMerchant.email || 'demo@guiafacil.app';
+  defaultMerchant.nfcTaps = defaultMerchant.nfcTaps || 128;
+  defaultMerchant.whatsappClicks = defaultMerchant.whatsappClicks || 54;
+  defaultMerchant.couponsRedeemed = defaultMerchant.couponsRedeemed || 21;
+  defaultMerchant.rating = defaultMerchant.rating || 4.9;
+  defaultMerchant.customLinks = defaultMerchant.customLinks || {
+    whatsapp: defaultMerchant.whatsapp || "5512998765432",
+    instagram: "emporio_mantiqueira",
+    google_reviews: "https://g.page/r/guiafacil-emporio",
+    menu_reservas: "https://cardapio.guiafacil.app/reserva"
+  };
+
+  const user = {
+    id: `u-${defaultMerchant.id}`,
+    email: defaultMerchant.email,
+    name: defaultMerchant.name,
+    role: 'merchant'
+  };
+
+  state.merchantLogged = true;
+  state.merchantUser = user;
+  state.selectedMerchantId = defaultMerchant.id;
+  state.merchantTab = 'site_builder';
+
+  safeStorage.set('guia_facil_merchant_user', JSON.stringify(user));
+  safeStorage.set('guia_facil_merchant_id', defaultMerchant.id);
 
   renderApp();
 }
@@ -3310,6 +3415,7 @@ window.app = Object.assign(window.app || {}, {
   createNewEvent,
   changeMonth,
   handleMerchantLogin,
+  quickDemoLogin,
   handleMerchantLogout,
   triggerSimulation,
   handleChatSend,
@@ -3392,7 +3498,10 @@ function getNavbarHtml() {
           ` : ''}
 
           <div class="persona-switcher">
-            <button onclick="app.setActivePortal('visitor')" class="persona-btn ${getActiveBorder('visitor')}" style="display: flex; align-items: center; gap: 6px;">
+            <button onclick="app.quickDemoLogin()" class="btn btn-secondary" style="padding: 8px 14px; font-size: 12px; border-radius: 10px; display: flex; align-items: center; gap: 6px; border: 1px solid rgba(0, 196, 140, 0.4); color: #00c48c;">
+            <i data-lucide="zap" style="width: 14px; height: 14px;"></i> Carregar Loja Modelo Demo
+          </button>
+          <button onclick="app.setActivePortal('visitor')" class="persona-btn ${getActiveBorder('visitor')}" style="display: flex; align-items: center; gap: 6px;">
               <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Turista (WhatsApp)
             </button>
             <button onclick="app.setActivePortal('merchant')" class="persona-btn ${getActiveBorder('merchant')}" style="display: flex; align-items: center; gap: 6px;">
@@ -3454,7 +3563,10 @@ function getLandingPageHtml() {
 
 <!-- CTAs -->
           <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 40px;">
-            <button onclick="app.setActivePortal('visitor')" class="btn btn-primary" style="padding: 14px 28px; font-size: 16px; font-weight: 700; border-radius: 14px; display: flex; align-items: center; gap: 10px;">
+            <button onclick="app.quickDemoLogin()" class="btn btn-secondary" style="padding: 8px 14px; font-size: 12px; border-radius: 10px; display: flex; align-items: center; gap: 6px; border: 1px solid rgba(0, 196, 140, 0.4); color: #00c48c;">
+            <i data-lucide="zap" style="width: 14px; height: 14px;"></i> Carregar Loja Modelo Demo
+          </button>
+          <button onclick="app.setActivePortal('visitor')" class="btn btn-primary" style="padding: 14px 28px; font-size: 16px; font-weight: 700; border-radius: 14px; display: flex; align-items: center; gap: 10px;">
               <i data-lucide="message-square" style="width: 20px; height: 20px;"></i>
               <span>Conversar com a Cidade pelo WhatsApp</span>
             </button>
@@ -3792,6 +3904,9 @@ function getMerchantPortalHtml() {
         </div>
 
         <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+          <button onclick="app.quickDemoLogin()" class="btn btn-secondary" style="padding: 8px 14px; font-size: 12px; border-radius: 10px; display: flex; align-items: center; gap: 6px; border: 1px solid rgba(0, 196, 140, 0.4); color: #00c48c;">
+            <i data-lucide="zap" style="width: 14px; height: 14px;"></i> Carregar Loja Modelo Demo
+          </button>
           <button onclick="app.setActivePortal('visitor')" class="btn btn-primary" style="padding: 8px 16px; font-size: 13px; border-radius: 10px; display: flex; align-items: center; gap: 6px;">
             <i data-lucide="message-square" style="width: 14px; height: 14px;"></i> Testar no WhatsApp da Cidade
           </button>
@@ -4005,7 +4120,10 @@ function getMerchantPortalHtml() {
                 <div style="background: rgba(16, 24, 40, 0.85); border: 1px solid rgba(0, 196, 140, 0.3); border-radius: 14px; padding: 12px; text-align: center;">
                   <div style="font-size: 11px; font-weight: 700; color: white; margin-bottom: 4px;">Dúvidas sobre ${city.name}?</div>
                   <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 8px;">Converse com o concierge turístico oficial</div>
-                  <button onclick="app.setActivePortal('visitor')" style="width: 100%; padding: 8px; background: linear-gradient(135deg, #00c48c, #059669); color: black; font-weight: 800; font-size: 11px; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                  <button onclick="app.quickDemoLogin()" class="btn btn-secondary" style="padding: 8px 14px; font-size: 12px; border-radius: 10px; display: flex; align-items: center; gap: 6px; border: 1px solid rgba(0, 196, 140, 0.4); color: #00c48c;">
+            <i data-lucide="zap" style="width: 14px; height: 14px;"></i> Carregar Loja Modelo Demo
+          </button>
+          <button onclick="app.setActivePortal('visitor')" style="width: 100%; padding: 8px; background: linear-gradient(135deg, #00c48c, #059669); color: black; font-weight: 800; font-size: 11px; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
                     <i data-lucide="bot" style="width: 14px; height: 14px;"></i> Abrir WhatsApp do Guia Fácil
                   </button>
                 </div>
