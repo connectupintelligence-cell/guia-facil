@@ -3954,8 +3954,8 @@ function getMerchantPortalHtml() {
           style="padding: 10px 18px; font-size: 13px; border-radius: 10px; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(167, 139, 250, 0.4);"
         >
           <i data-lucide="smartphone-nfc" style="width: 16px; height: 16px; color: #c4b5fd;"></i>
-          <span>2. Placa NFC Físico & Planos</span>
-          <span style="background: rgba(139, 92, 246, 0.2); color: #c4b5fd; font-size: 10px; padding: 2px 6px; border-radius: 6px; font-weight: 700;">R$ 20 Custo</span>
+          <span>2. Placa NFC & Planos</span>
+          <span style="background: rgba(139, 92, 246, 0.2); color: #c4b5fd; font-size: 10px; padding: 2px 6px; border-radius: 6px; font-weight: 700;">TOTEM FÍSICO</span>
         </button>
 
         <button 
@@ -4144,19 +4144,19 @@ function getMerchantPortalHtml() {
           <div class="glass-panel" style="padding: 28px 32px; border-radius: 20px; margin-bottom: 28px; background: linear-gradient(135deg, rgba(13, 20, 36, 0.95), rgba(139, 92, 246, 0.15)); border: 1px solid rgba(167, 139, 250, 0.35);">
             <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
               <div>
-                <span class="badge" style="background: rgba(139, 92, 246, 0.2); color: #c4b5fd; font-weight: 700; font-size: 11px; margin-bottom: 8px;">
-                  ESTRATÉGIA FÍSICA NO BALCÃO • CUSTO DE R$ 20 / PLACA
+                <span class="badge" style="background: rgba(0, 196, 140, 0.2); color: #00c48c; font-weight: 700; font-size: 11px; margin-bottom: 8px;">
+                  TECNOLOGIA NO BALCÃO • TOTEM EM ACRÍLICO COM CHIP NFC
                 </span>
                 <h3 style="font-size: 24px; font-weight: 800; color: white; margin: 4px 0 8px 0;">Placas NFC Inteligentes no Comércio Local</h3>
                 <p style="font-size: 14px; color: var(--text-secondary); max-width: 760px; line-height: 1.6; margin: 0;">
-                  A distribuição da placa de acrílico gravada a laser com chip NFC coloca o <strong>Guia Fácil</strong> dentro do balcão e das mesas dos melhores estabelecimentos de <strong>${city.name}</strong>. É a nossa presença física na cidade gerando tráfego diário para o WhatsApp e para o comércio.
+                  O totem oficial em acrílico gravado a laser com chip NFC conecta instantaneamente os clientes do seu estabelecimento em <strong>${city.name}</strong> ao seu cardápio, avaliações 5 estrelas no Google e WhatsApp oficial com apenas uma aproximação de celular.
                 </p>
               </div>
 
-              <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 14px 20px; text-align: center;">
-                <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Custo Unitário da Placa</div>
-                <div style="font-size: 24px; font-weight: 800; color: #00c48c;">~ R$ 20,00</div>
-                <div style="font-size: 10px; color: #94a3b8;">Pago na 1ª mensalidade Prata</div>
+              <div style="background: rgba(0, 196, 140, 0.1); border: 1px solid rgba(0, 196, 140, 0.3); border-radius: 14px; padding: 16px 22px; text-align: center;">
+                <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase; font-weight: 600;">Placa de Balcão</div>
+                <div style="font-size: 20px; font-weight: 800; color: #00c48c;">Inclusa</div>
+                <div style="font-size: 11px; color: #cbd5e1; margin-top: 2px;">Nos Planos Prata e Ouro</div>
               </div>
             </div>
           </div>
