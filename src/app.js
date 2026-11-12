@@ -2149,6 +2149,7 @@ const state = {
   modalMessage: null,
   
   selectedMerchantId: 101,
+  merchantTab: 'perfil', // 'perfil', 'site_builder', 'nfc_totem'
   saveSuccess: false,
   couponSuccess: false,
   
@@ -3289,6 +3290,7 @@ async function processUserChatMessage(text) {
 
 window.appState = state;
 window.app = Object.assign(window.app || {}, {
+  setMerchantTab: (tab) => { state.merchantTab = tab; renderApp(); },
   switchCity,
   openCityModal,
   closeCityModal,
@@ -3761,8 +3763,11 @@ function getVisitorPortalHtml() {
 function getMerchantPortalHtml() {
   const merchant = state.merchants.find(m => m.id === state.selectedMerchantId) || state.merchants[0];
   const city = getCurrentCity();
+  const currentTab = state.merchantTab || 'perfil';
 
   if (!merchant) return getMerchantLoginHtml();
+
+  const siteUrl = `https://guiafacil.app/${city.id}/${(merchant.name || 'comercio').toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
 
   return `
     <div class="animate-fade-in" style="padding: 30px 0;">
@@ -3770,18 +3775,23 @@ function getMerchantPortalHtml() {
       <!-- Top Bar: Logged User info -->
       <div class="glass-panel" style="padding: 18px 24px; border-radius: 16px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
         <div style="display: flex; align-items: center; gap: 12px;">
-          <div style="width: 42px; height: 42px; border-radius: 12px; background: rgba(0, 196, 140, 0.15); color: #00c48c; display: flex; align-items: center; justify-content: center;">
-            <i data-lucide="store" style="width: 22px; height: 22px;"></i>
+          <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(0, 196, 140, 0.15); color: #00c48c; display: flex; align-items: center; justify-content: center;">
+            <i data-lucide="store" style="width: 24px; height: 24px;"></i>
           </div>
           <div>
-            <div style="font-weight: 700; font-size: 16px; color: white;">${merchant.name}</div>
-            <div style="font-size: 12px; color: var(--text-secondary);">
+            <div style="font-weight: 700; font-size: 17px; color: white; display: flex; align-items: center; gap: 8px;">
+              ${merchant.name}
+              <span class="badge" style="background: rgba(0, 196, 140, 0.2); color: #00c48c; font-size: 10px; padding: 2px 8px; border: 1px solid rgba(0, 196, 140, 0.4);">
+                Plano Ouro Pro
+              </span>
+            </div>
+            <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">
               Logado como: <strong>${merchant.email || state.merchantUser?.email || 'comerciante@local'}</strong> • Município: <strong>${city.name}</strong>
             </div>
           </div>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
           <button onclick="app.setActivePortal('visitor')" class="btn btn-primary" style="padding: 8px 16px; font-size: 13px; border-radius: 10px; display: flex; align-items: center; gap: 6px;">
             <i data-lucide="message-square" style="width: 14px; height: 14px;"></i> Testar no WhatsApp da Cidade
           </button>
@@ -3792,138 +3802,421 @@ function getMerchantPortalHtml() {
       </div>
 
       <!-- Métricas do Comerciante -->
-      <div class="stats-grid" style="margin-bottom: 30px;">
+      <div class="stats-grid" style="margin-bottom: 24px;">
         <div class="stat-card">
           <div class="stat-value">${merchant.viewsThisWeek || 140}</div>
           <div class="stat-label">Visualizações no Guia Fácil</div>
         </div>
         <div class="stat-card">
           <div class="stat-value">${merchant.whatsappClicks || 38}</div>
-          <div class="stat-label">Leads Direcionados ao WhatsApp</div>
+          <div class="stat-label">Leads no WhatsApp</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${(merchant.nfcTaps || 64)}</div>
+          <div class="stat-label">Toques na Placa NFC</div>
         </div>
         <div class="stat-card">
           <div class="stat-value">${merchant.couponsRedeemed || 12}</div>
-          <div class="stat-label">Cupons de Desconto Resgatados</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">${merchant.rating || 4.9} ⭐</div>
-          <div class="stat-label">Avaliação dos Turistas</div>
+          <div class="stat-label">Cupons Resgatados</div>
         </div>
       </div>
 
-      <!-- Grid com Formulário de Perfil e Cupons -->
-      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px;" class="mobile-column-layout">
-        
-        <!-- Formulário de Atualização do Estabelecimento -->
-        <div class="glass-panel" style="padding: 30px; border-radius: 20px;">
-          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px; color: white;">Informações do Estabelecimento</h3>
-          <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 20px;">
-            Estas informações alimentam instantaneamente a inteligência da IA do WhatsApp e o catálogo turístico da cidade.
-          </p>
+      <!-- NAVEGAÇÃO DE ABAS DO COMERCIANTE -->
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 14px; flex-wrap: wrap;">
+        <button 
+          onclick="app.setMerchantTab('perfil')" 
+          class="btn ${currentTab === 'perfil' ? 'btn-primary' : 'btn-secondary'}" 
+          style="padding: 10px 18px; font-size: 13px; border-radius: 10px; display: flex; align-items: center; gap: 8px;"
+        >
+          <i data-lucide="file-edit" style="width: 16px; height: 16px;"></i>
+          <span>1. Dados & Cupons</span>
+        </button>
 
-          <form onsubmit="app.saveProfile(event)">
-            <div class="form-group" style="margin-bottom: 16px;">
-              <label class="form-label">Nome Comercial</label>
-              <input type="text" id="m-name" value="${merchant.name}" class="form-input" required />
-            </div>
+        <button 
+          onclick="app.setMerchantTab('site_builder')" 
+          class="btn ${currentTab === 'site_builder' ? 'btn-primary' : 'btn-secondary'}" 
+          style="padding: 10px 18px; font-size: 13px; border-radius: 10px; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(0, 196, 140, 0.4);"
+        >
+          <i data-lucide="globe" style="width: 16px; height: 16px; color: #00c48c;"></i>
+          <span>2. Construtor de Site (Pro)</span>
+          <span style="background: rgba(0, 196, 140, 0.2); color: #00c48c; font-size: 10px; padding: 2px 6px; border-radius: 6px; font-weight: 700;">PRO</span>
+        </button>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px;">
-              <div>
-                <label class="form-label">Categoria</label>
-                <select id="m-cat" class="form-select">
-                  <option value="Gastronomia" ${merchant.category === 'Gastronomia' ? 'selected' : ''}>Gastronomia</option>
-                  <option value="Hospedagem" ${merchant.category === 'Hospedagem' ? 'selected' : ''}>Hospedagem</option>
-                  <option value="Comércio" ${merchant.category === 'Comércio' ? 'selected' : ''}>Comércio</option>
-                  <option value="Aventura" ${merchant.category === 'Aventura' ? 'selected' : ''}>Aventura & Lazer</option>
-                  <option value="Cultura" ${merchant.category === 'Cultura' ? 'selected' : ''}>Cultura & Artesanato</option>
-                </select>
-              </div>
-              <div>
-                <label class="form-label">WhatsApp (com DDD)</label>
-                <input type="text" id="m-wpp" value="${merchant.whatsapp || ''}" class="form-input" placeholder="Ex: 5512999990000" required />
-              </div>
-            </div>
+        <button 
+          onclick="app.setMerchantTab('nfc_totem')" 
+          class="btn ${currentTab === 'nfc_totem' ? 'btn-primary' : 'btn-secondary'}" 
+          style="padding: 10px 18px; font-size: 13px; border-radius: 10px; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(167, 139, 250, 0.4);"
+        >
+          <i data-lucide="smartphone-nfc" style="width: 16px; height: 16px; color: #c4b5fd;"></i>
+          <span>3. Placa NFC Inteligente</span>
+          <span style="background: rgba(139, 92, 246, 0.2); color: #c4b5fd; font-size: 10px; padding: 2px 6px; border-radius: 6px; font-weight: 700;">FÍSICO</span>
+        </button>
+      </div>
 
-            <div class="form-group" style="margin-bottom: 16px;">
-              <label class="form-label">Endereço / Localização</label>
-              <input type="text" id="m-loc" value="${merchant.location || ''}" class="form-input" required />
-            </div>
-
-            <div class="form-group" style="margin-bottom: 16px;">
-              <label class="form-label">Horários de Funcionamento</label>
-              <input type="text" id="m-hours" value="${merchant.hours || 'Terça a domingo, das 11h às 22h'}" class="form-input" />
-            </div>
-
-            <div class="form-group" style="margin-bottom: 16px;">
-              <label class="form-label">Descrição para a IA Recomendar aos Turistas</label>
-              <textarea id="m-desc" rows="3" class="form-textarea" required>${merchant.description || ''}</textarea>
-            </div>
-
-            <div class="form-group" style="margin-bottom: 24px;">
-              <label class="form-label">URL da Foto / Fachada</label>
-              <input type="text" id="m-img" value="${merchant.imageUrl || ''}" class="form-input" />
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-weight: 700; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 8px;">
-              <i data-lucide="save" style="width: 18px; height: 18px;"></i> Salvar e Sincronizar com o WhatsApp
-            </button>
-          </form>
-        </div>
-
-        <!-- Emissão de Cupons e Ofertas -->
-        <div style="display: flex; flex-direction: column; gap: 24px;">
+      <!-- CONTEÚDO DA ABA 1: DADOS & CUPONS -->
+      ${currentTab === 'perfil' ? `
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px;" class="mobile-column-layout">
           
-          <div class="glass-panel" style="padding: 24px; border-radius: 20px;">
-            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 6px; color: white;">Criar Novo Cupom</h3>
-            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 16px;">
-              Cupons estimulam a IA a recomendar seu comércio com prioridade.
+          <!-- Formulário de Atualização do Estabelecimento -->
+          <div class="glass-panel" style="padding: 30px; border-radius: 20px;">
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px; color: white;">Informações do Estabelecimento</h3>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 20px;">
+              Estas informações alimentam instantaneamente a inteligência da IA do WhatsApp e o catálogo turístico da cidade.
             </p>
 
-            <form id="coupon-form" onsubmit="app.addNewCoupon(event)">
-              <div class="form-group" style="margin-bottom: 12px;">
-                <label class="form-label">Código do Cupom</label>
-                <input type="text" id="c-code" placeholder="Ex: PROMO15, CHOCOLATEVIP" class="form-input" required />
-              </div>
-              <div class="form-group" style="margin-bottom: 12px;">
-                <label class="form-label">Descrição do Benefício</label>
-                <input type="text" id="c-desc" placeholder="Ex: 15% no prato principal, sobremesa cortesia" class="form-input" required />
-              </div>
+            <form onsubmit="app.saveProfile(event)">
               <div class="form-group" style="margin-bottom: 16px;">
-                <label class="form-label">Limite de Resgates</label>
-                <input type="number" id="c-limit" value="50" class="form-input" required />
+                <label class="form-label">Nome Comercial</label>
+                <input type="text" id="m-name" value="${merchant.name}" class="form-input" required />
               </div>
 
-              <button type="submit" class="btn btn-secondary" style="width: 100%; padding: 10px; font-weight: 600; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 6px;">
-                <i data-lucide="plus-circle" style="width: 16px; height: 16px;"></i> Publicar Oferta
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px;">
+                <div>
+                  <label class="form-label">Categoria</label>
+                  <select id="m-cat" class="form-select">
+                    <option value="Gastronomia" ${merchant.category === 'Gastronomia' ? 'selected' : ''}>Gastronomia</option>
+                    <option value="Hospedagem" ${merchant.category === 'Hospedagem' ? 'selected' : ''}>Hospedagem</option>
+                    <option value="Comércio" ${merchant.category === 'Comércio' ? 'selected' : ''}>Comércio</option>
+                    <option value="Aventura" ${merchant.category === 'Aventura' ? 'selected' : ''}>Aventura & Lazer</option>
+                    <option value="Cultura" ${merchant.category === 'Cultura' ? 'selected' : ''}>Cultura & Artesanato</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="form-label">WhatsApp (com DDD)</label>
+                  <input type="text" id="m-wpp" value="${merchant.whatsapp || ''}" class="form-input" placeholder="Ex: 5512999990000" required />
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 16px;">
+                <label class="form-label">Endereço / Localização</label>
+                <input type="text" id="m-loc" value="${merchant.location || ''}" class="form-input" required />
+              </div>
+
+              <div class="form-group" style="margin-bottom: 16px;">
+                <label class="form-label">Horários de Funcionamento</label>
+                <input type="text" id="m-hours" value="${merchant.hours || 'Terça a domingo, das 11h às 22h'}" class="form-input" />
+              </div>
+
+              <div class="form-group" style="margin-bottom: 16px;">
+                <label class="form-label">Descrição para a IA Recomendar aos Turistas</label>
+                <textarea id="m-desc" rows="3" class="form-textarea" required>${merchant.description || ''}</textarea>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 24px;">
+                <label class="form-label">URL da Foto / Fachada</label>
+                <input type="text" id="m-img" value="${merchant.imageUrl || ''}" class="form-input" />
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-weight: 700; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <i data-lucide="save" style="width: 18px; height: 18px;"></i> Salvar e Sincronizar com o WhatsApp
               </button>
             </form>
           </div>
 
-          <!-- Cupons Ativos -->
-          <div class="glass-panel" style="padding: 24px; border-radius: 20px;">
-            <h4 style="font-size: 15px; font-weight: 700; margin-bottom: 14px; color: white;">Cupons Ativos da sua Empresa</h4>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-              ${(merchant.coupons || []).map(c => `
-                <div style="padding: 10px 14px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
-                  <div>
-                    <div style="font-weight: 700; color: #00c48c; font-size: 13px;">${c.code}</div>
-                    <div style="font-size: 12px; color: var(--text-secondary);">${c.description}</div>
-                  </div>
-                  <span class="badge badge-primary" style="font-size: 10px;">${c.redeemed || 0} resgatados</span>
+          <!-- Emissão de Cupons e Ofertas -->
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            
+            <div class="glass-panel" style="padding: 24px; border-radius: 20px;">
+              <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 6px; color: white;">Criar Novo Cupom</h3>
+              <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 16px;">
+                Cupons estimulam a IA a recomendar seu comércio com prioridade.
+              </p>
+
+              <form id="coupon-form" onsubmit="app.addNewCoupon(event)">
+                <div class="form-group" style="margin-bottom: 12px;">
+                  <label class="form-label">Código do Cupom</label>
+                  <input type="text" id="c-code" placeholder="Ex: PROMO15, CHOCOLATEVIP" class="form-input" required />
                 </div>
-              `).join('')}
+                <div class="form-group" style="margin-bottom: 12px;">
+                  <label class="form-label">Descrição do Benefício</label>
+                  <input type="text" id="c-desc" placeholder="Ex: 15% no prato principal, sobremesa cortesia" class="form-input" required />
+                </div>
+                <div class="form-group" style="margin-bottom: 16px;">
+                  <label class="form-label">Limite de Resgates</label>
+                  <input type="number" id="c-limit" value="50" class="form-input" required />
+                </div>
+
+                <button type="submit" class="btn btn-secondary" style="width: 100%; padding: 10px; font-weight: 600; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                  <i data-lucide="plus-circle" style="width: 16px; height: 16px;"></i> Publicar Oferta
+                </button>
+              </form>
+            </div>
+
+            <!-- Cupons Ativos -->
+            <div class="glass-panel" style="padding: 24px; border-radius: 20px;">
+              <h4 style="font-size: 15px; font-weight: 700; margin-bottom: 14px; color: white;">Cupons Ativos da sua Empresa</h4>
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                ${(merchant.coupons || []).map(c => `
+                  <div style="padding: 10px 14px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                      <div style="font-weight: 700; color: #00c48c; font-size: 13px;">${c.code}</div>
+                      <div style="font-size: 12px; color: var(--text-secondary);">${c.description}</div>
+                    </div>
+                    <span class="badge badge-primary" style="font-size: 10px;">${c.redeemed || 0} resgatados</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      ` : ''}
+
+      <!-- CONTEÚDO DA ABA 2: CONSTRUTOR DE MINI-SITE (PRO) -->
+      ${currentTab === 'site_builder' ? `
+        <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px;" class="mobile-column-layout">
+          
+          <!-- Editor do Site -->
+          <div class="glass-panel" style="padding: 30px; border-radius: 20px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+              <div style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 8px; background: rgba(0, 196, 140, 0.15); color: #00c48c; font-size: 11px; font-weight: 700; text-transform: uppercase;">
+                <i data-lucide="sparkles" style="width: 12px; height: 12px;"></i> Vitrine Digital Mobile-First
+              </div>
+              <span style="font-size: 12px; color: #22c55e; font-weight: 600; display: flex; align-items: center; gap: 4px;">
+                <span class="city-pulsing-dot"></span> Site Online
+              </span>
+            </div>
+
+            <h3 style="font-size: 20px; font-weight: 700; color: white; margin-bottom: 6px;">Construtor do seu Micro-Site Oficial</h3>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 22px; line-height: 1.5;">
+              Este é o site rápido que o cliente abre ao aproximar o celular da sua <strong>Placa NFC</strong> ou ao clicar no seu link do WhatsApp. Personalize os destaques abaixo:
+            </p>
+
+            <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); padding: 12px 16px; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between;">
+              <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; color: #00c48c; font-family: monospace;">
+                ${siteUrl}
+              </div>
+              <button onclick="navigator.clipboard && navigator.clipboard.writeText('${siteUrl}'); alert('Link do site copiado!');" class="btn btn-secondary btn-sm" style="padding: 4px 10px; font-size: 11px;">
+                Copiar Link
+              </button>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 16px;">
+              <label class="form-label">Slogan de Destaque da Loja</label>
+              <input type="text" class="form-input" value="A melhor gastronomia da serra com ingredientes locais e acolhimento familiar." id="sb-slogan" />
+            </div>
+
+            <div class="form-group" style="margin-bottom: 16px;">
+              <label class="form-label">Ação do Botão Principal do Site</label>
+              <select class="form-select" id="sb-cta">
+                <option value="wpp">Fazer Pedido / Reserva no WhatsApp</option>
+                <option value="cardapio">Visualizar Cardápio Completo</option>
+                <option value="cupom">Pegar Cupom de Boas-Vindas</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 16px;">
+              <label class="form-label">Prato / Produto 1 em Destaque</label>
+              <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 10px;">
+                <input type="text" class="form-input" value="Prato Tradicional da Casa" placeholder="Nome do prato" />
+                <input type="text" class="form-input" value="R$ 68,00" placeholder="Preço" />
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 16px;">
+              <label class="form-label">Prato / Produto 2 em Destaque</label>
+              <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 10px;">
+                <input type="text" class="form-input" value="Sobremesa Especial da Serra" placeholder="Nome do prato" />
+                <input type="text" class="form-input" value="R$ 26,00" placeholder="Preço" />
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 24px;">
+              <label class="form-label">Instagram do Estabelecimento</label>
+              <input type="text" class="form-input" value="@${(merchant.name || 'comercio').toLowerCase().replace(/[^a-z0-9]/g, '')}" placeholder="@seucomercio" />
+            </div>
+
+            <button onclick="alert('Micro-site sincronizado com sucesso! A IA do Guia Fácil já está lendo as novas informações.');" class="btn btn-primary" style="width: 100%; padding: 12px; font-weight: 700; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <i data-lucide="check" style="width: 18px; height: 18px;"></i> Salvar e Atualizar Site
+            </button>
+          </div>
+
+          <!-- Preview do Smartphone ao Vivo -->
+          <div>
+            <div style="text-align: center; margin-bottom: 12px; font-size: 13px; font-weight: 600; color: var(--text-secondary); display: flex; align-items: center; justify-content: center; gap: 6px;">
+              <i data-lucide="smartphone" style="width: 15px; height: 15px; color: #00c48c;"></i>
+              Preview no Celular do Turista (NFC / Link)
+            </div>
+
+            <!-- Moldura do Smartphone -->
+            <div style="max-width: 320px; margin: 0 auto; border: 8px solid #1e293b; border-radius: 36px; overflow: hidden; background: #0b0f19; box-shadow: 0 20px 50px rgba(0,0,0,0.6); position: relative;">
+              
+              <!-- Notch do Celular -->
+              <div style="background: #1e293b; height: 18px; width: 120px; margin: 0 auto; border-radius: 0 0 12px 12px; display: flex; align-items: center; justify-content: center;">
+                <div style="width: 8px; height: 8px; border-radius: 50%; background: #0b0f19;"></div>
+              </div>
+
+              <!-- Conteúdo da Página do Comércio -->
+              <div style="padding: 16px; max-height: 520px; overflow-y: auto;">
+                
+                <!-- Imagem da Fachada -->
+                <div style="position: relative; height: 140px; border-radius: 16px; overflow: hidden; margin-bottom: 12px;">
+                  <img src="${merchant.imageUrl}" alt="${merchant.name}" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <div style="position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); padding: 3px 8px; border-radius: 6px; font-size: 10px; color: #00c48c; font-weight: 700;">
+                    ✓ Guia Fácil • ${city.name}
+                  </div>
+                </div>
+
+                <h4 style="font-size: 16px; font-weight: 800; color: white; margin: 0 0 4px 0;">${merchant.name}</h4>
+                <div style="font-size: 11px; color: #94a3b8; margin-bottom: 10px;">${merchant.category} • ⭐ ${merchant.rating || 4.9} (120 avaliações)</div>
+                
+                <p style="font-size: 11px; color: #cbd5e1; line-height: 1.4; margin-bottom: 12px;">
+                  A melhor gastronomia da serra com ingredientes locais e acolhimento familiar.
+                </p>
+
+                <!-- Botão de Ação do WhatsApp -->
+                <a href="https://wa.me/${merchant.whatsapp}" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 10px; background: #22c55e; color: black; font-weight: 700; font-size: 12px; border-radius: 10px; text-decoration: none; margin-bottom: 14px;">
+                  <i data-lucide="message-circle" style="width: 14px; height: 14px;"></i> Fazer Pedido / Reservar Mesa
+                </a>
+
+                <!-- Destaques do Cardápio -->
+                <div style="margin-bottom: 14px;">
+                  <div style="font-size: 12px; font-weight: 700; color: white; margin-bottom: 8px;">Destaques do Cardápio</div>
+                  <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div style="padding: 8px 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                      <span style="font-size: 11px; color: white;">Prato Tradicional da Casa</span>
+                      <strong style="font-size: 11px; color: #00c48c;">R$ 68,00</strong>
+                    </div>
+                    <div style="padding: 8px 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                      <span style="font-size: 11px; color: white;">Sobremesa Especial da Serra</span>
+                      <strong style="font-size: 11px; color: #00c48c;">R$ 26,00</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Cupom no Celular -->
+                <div style="padding: 10px; background: rgba(0,196,140,0.1); border: 1px dashed #00c48c; border-radius: 10px; text-align: center;">
+                  <span style="font-size: 10px; color: #94a3b8; text-transform: uppercase;">Cupom Oficial</span>
+                  <div style="font-size: 13px; font-weight: 800; color: #00c48c; margin: 2px 0;">15% DE DESCONTO</div>
+                  <span style="font-size: 9px; color: #cbd5e1;">Apresente este código no caixa do local</span>
+                </div>
+
+              </div>
+
             </div>
           </div>
 
         </div>
+      ` : ''}
 
-      </div>
+      <!-- CONTEÚDO DA ABA 3: PLACA NFC INTELIGENTE -->
+      ${currentTab === 'nfc_totem' ? `
+        <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 30px;" class="mobile-column-layout">
+          
+          <!-- Explicação da Placa NFC -->
+          <div class="glass-panel" style="padding: 30px; border-radius: 20px;">
+            <div style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 8px; background: rgba(139, 92, 246, 0.15); color: #c4b5fd; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">
+              <i data-lucide="nfc" style="width: 12px; height: 12px;"></i> Totem Físico de Balcão e Mesa
+            </div>
+
+            <h3 style="font-size: 22px; font-weight: 800; color: white; margin-bottom: 10px;">A Ponte Física entre seu Salão e o Guia Fácil</h3>
+            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;">
+              A <strong>Placa Inteligente NFC</strong> é uma peça de acrílico cristal com tecnologia de aproximação que fica exposta no seu balcão ou nas mesas. Ela transforma o seu comércio em um ponto conectado da cidade.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px;">
+              <div style="display: flex; gap: 12px;">
+                <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(0, 196, 140, 0.15); color: #00c48c; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i data-lucide="zap" style="width: 18px; height: 18px;"></i>
+                </div>
+                <div>
+                  <h4 style="font-size: 14px; font-weight: 700; color: white; margin: 0 0 2px 0;">1. Toque Sem Aplicativo</h4>
+                  <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.4;">
+                    O cliente apenas aproxima qualquer smartphone (iPhone ou Android) a 2cm da placa. O cardápio digital e os cupons abrem na hora na tela dele.
+                  </p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 12px;">
+                <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(59, 130, 246, 0.15); color: #60a5fa; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i data-lucide="database" style="width: 18px; height: 18px;"></i>
+                </div>
+                <div>
+                  <h4 style="font-size: 14px; font-weight: 700; color: white; margin: 0 0 2px 0;">2. Alimenta a IA da Cidade em Tempo Real</h4>
+                  <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.4;">
+                    Sempre que você altera preços, cardápio ou promoções no seu painel, a placa lê instantaneamente as novidades e a IA do WhatsApp já começa a recomendar para os outros turistas.
+                  </p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 12px;">
+                <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(245, 158, 11, 0.15); color: #fbbf24; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i data-lucide="bar-chart-2" style="width: 18px; height: 18px;"></i>
+                </div>
+                <div>
+                  <h4 style="font-size: 14px; font-weight: 700; color: white; margin: 0 0 2px 0;">3. Registro de Presença & Dados Turísticos</h4>
+                  <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.4;">
+                    Cada aproximação contabiliza visitas reais no seu estabelecimento, gerando dados valiosos para a Secretaria de Turismo e provando o retorno do Guia Fácil para o seu comércio.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Box de Solicitação da Placa -->
+            <div style="background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 14px; padding: 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <div style="font-size: 13px; font-weight: 700; color: white;">Deseja receber a Placa NFC no seu endereço?</div>
+                <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Inclusa gratuitamente no <strong>Plano Ouro / BPO</strong></div>
+              </div>
+              <button onclick="alert('Solicitação de Placa NFC registrada para ${merchant.name}! Nossa equipe de campo entrará em contato para agendar a entrega e gravação a laser.');" class="btn btn-primary" style="background: linear-gradient(135deg, #8b5cf6, #00c48c); font-size: 12px; padding: 8px 16px; border-radius: 10px;">
+                <i data-lucide="box" style="width: 14px; height: 14px;"></i> Solicitar Placa NFC
+              </button>
+            </div>
+          </div>
+
+          <!-- Mockup Visual 3D da Placa Física de Balcão -->
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            
+            <div style="text-align: center; margin-bottom: 16px; font-size: 13px; font-weight: 600; color: var(--text-secondary);">
+              Mockup do Totem Físico de Balcão / Mesa
+            </div>
+
+            <!-- Estrutura da Placa de Acrílico -->
+            <div style="width: 270px; background: linear-gradient(145deg, #182030, #0a0d16); border: 2px solid rgba(0, 196, 140, 0.4); border-radius: 20px; padding: 26px 20px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 196, 140, 0.15); text-align: center; position: relative;">
+              
+              <!-- Selo do Topo com Chip NFC -->
+              <div style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: rgba(0, 196, 140, 0.15); border: 1.5px solid #00c48c; color: #00c48c; margin-bottom: 12px; animation: pulse 2s infinite;">
+                <i data-lucide="nfc" style="width: 26px; height: 26px;"></i>
+              </div>
+
+              <div style="font-size: 11px; font-weight: 800; color: #00c48c; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px;">
+                Aproxime seu Celular
+              </div>
+              <div style="font-size: 10px; color: #94a3b8; margin-bottom: 16px;">
+                Tecnologia NFC • Sem Aplicativo
+              </div>
+
+              <!-- QR Code Alternativo para Câmera -->
+              <div style="background: white; padding: 12px; border-radius: 12px; display: inline-block; margin-bottom: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=${encodeURIComponent(siteUrl)}" alt="QR Code" style="width: 110px; height: 110px; display: block;" />
+              </div>
+
+              <!-- Nome do Estabelecimento -->
+              <div style="font-size: 14px; font-weight: 800; color: white; margin-bottom: 2px;">
+                ${merchant.name}
+              </div>
+              <div style="font-size: 10px; color: #00c48c; font-weight: 600; margin-bottom: 12px;">
+                ✓ Estabelecimento Credenciado • ${city.name}
+              </div>
+
+              <div style="font-size: 9px; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
+                Cardápio Digital • Cupons • Inteligência Territorial
+              </div>
+
+            </div>
+
+            <!-- Base de Madeira / Apoio do Totem -->
+            <div style="width: 210px; height: 16px; background: linear-gradient(90deg, #334155, #475569, #334155); border-radius: 0 0 10px 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); margin-top: -2px;"></div>
+
+          </div>
+
+        </div>
+      ` : ''}
 
     </div>
   `;
-}
-
-function getManagerPortalHtml() {
+}function getManagerPortalHtml() {
   const city = getCurrentCity();
   const unapproved = state.merchants.filter(m => !m.approved);
   const avg = state.stats.averageSpending || { hospedagem: 380, alimentacao: 190, compras: 140, ingressos: 60 };
